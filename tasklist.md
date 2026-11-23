@@ -13,8 +13,8 @@ Khusus repositori ini difokuskan pada **Portal Admin HRD** (**381 Test Cases**: 
 | **Fase 1** | Discovery Menu & API Riil, Audit & Refactor SIT v3 (5 Perbaikan Tester Aji + 10 Revisi Live Chunk + Pagination Menyeluruh), & Update `WebKaryawanPrompt.md` | `plan.md`, `tasklist.md`, `docs/SIT_Scenario_Magang_Hadir.xlsx` (576 TCs total), `WebKaryawanPrompt.md` | Shared Foundation | ✅ Selesai (Completed) |
 | **Fase 2** | Maven Setup (`pom.xml` Selenium `4.52.0`) & Struktur Package Terisolasi (`deny` & `aji`) | `pom.xml`, `.gitignore`, `.editorconfig`, `src/main/...`, `src/test/...`, `testdata/` | Shared Foundation | ✅ Selesai (Completed) |
 | **Fase 3** | Core Thread-Safe Engine, Keamanan Base64, & Hybrid API Seeding Helper | `SecurityUtil`, `Constants`, `DriverFactory` (`headless=true`), `BasePage`, `BaseTest`, `BaseApiTest`, `EmployeeApiHelper`, `ExtentManager`, `TestListener` | Shared Foundation | ✅ Selesai (Completed) |
-| **Fase 4** | Page Object Model (POM) Admin Implementation | POM Deny (5+ Classes) & POM Aji (5+ Classes) | Deny & Aji | ⏳ Pending |
-| **Fase 5** | Automated Tests Implementation (Web UI + REST Assured API + Hybrid API+UI + E2E Lintas Modul) | `tests/admin/deny/*` (173 UI), `tests/admin/aji/*` (148 UI), `AdminGroupAApiTest` (30 API), `AdminGroupBApiTest` (30 API) | Deny (203 TCs) & Aji (178 TCs) | ⏳ Pending |
+| **Fase 4** | Page Object Model (POM) Admin Implementation | POM Deny (5+ Classes) & POM Aji (5+ Classes) | Deny & Aji | 🔄 In Progress (4.1 Login merged) |
+| **Fase 5** | Automated Tests Implementation (Web UI + REST Assured API + Hybrid API+UI + E2E Lintas Modul) | `tests/admin/deny/*` (173 UI), `tests/admin/aji/*` (148 UI), `AdminGroupAApiTest` (30 API), `AdminGroupBApiTest` (30 API) | Deny (203 TCs) & Aji (178 TCs) | 🔄 In Progress (5.1 Login merged) |
 | **Fase 6** | TestNG Multi-Suite Runner (`testng`, `testng-deny`, `testng-aji`) & Verifikasi Headless | `testng.xml`, `testng-deny.xml`, `testng-aji.xml` | Deny & Aji | ⏳ Pending |
 | **Fase 7** | Validasi ExtentReports Dashboard, Sinkronisasi Status SIT v3, README & Walkthrough | `reports/ExtentReport.html`, `README.md`, `walkthrough.md` | Shared Deliverable | ⏳ Pending |
 
@@ -78,7 +78,7 @@ Khusus repositori ini difokuskan pada **Portal Admin HRD** (**381 Test Cases**: 
 
 ### 🔹 Fase 4: Implementasi Admin Page Object Model (POM)
 #### 👤 Bagian Tester Deny (`pages/admin/deny/`):
-- [ ] **4.1.** `AdminLoginPage.java` (`/authentication/login`)
+- [x] **4.1.** `AdminLoginPage.java` (`/authentication/login`) — *✅ Selesai & merged ke `main`*
 - [ ] **4.2.** `AdminReportsGroupAPage.java` (`Semua`, `Kehadiran`, `Izin`, `Izin Terlambat`, `Izin Pulang Cepat`, `Sakit`)
 - [ ] **4.3.** `AdminLeavePage.java` (`Laporan-Cuti`: Cancel Cuti & verifikasi Defect Edit)
 - [ ] **4.4.** `AdminImportPage.java` (4 sub-menu `Import-*`)
@@ -95,7 +95,7 @@ Khusus repositori ini difokuskan pada **Portal Admin HRD** (**381 Test Cases**: 
 
 ### 🔹 Fase 5: Implementasi Automated Test Suites (UI, API, Hybrid & E2E)
 #### 👤 Bagian Tester Deny (203 TCs = 173 UI + 30 API):
-- [ ] **5.1.** `AdminLoginTest.java` (`SIT_ADM_UI_001–012`: 12 TCs — selesai di branch `feature/deny-admin-login`, siap review sebelum merge)
+- [x] **5.1.** `AdminLoginTest.java` (`SIT_ADM_UI_001–012`: 12 TCs — *✅ Selesai & merged ke `main`*)
 - [ ] **5.2.** `AdminReportsGroupATest.java` (`SIT_ADM_UI_026–079`: 54 TCs, termasuk Hybrid `Laporan-Cuti` & Pagination 7 menu)
 - [ ] **5.3.** `AdminImportTest.java` (`SIT_ADM_UI_154–169`: 16 TCs)
 - [ ] **5.4.** `AdminManagementGroupATest.java` (`SIT_ADM_UI_170–254`: 85 TCs, termasuk filter & pagination User, Preview Foto/Jumlah Cuti Register, pagination Sendiri, `Atur Virtual ID` Unit)
