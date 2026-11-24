@@ -109,10 +109,11 @@ public class AdminReportsGroupATest extends BaseTest {
     // =========================================================================
 
     @Test(priority = 26, description = "SIT_ADM_UI_026: Verifikasi data kolom Jam Masuk dan Jam Keluar beserta tipe WFO/WFH pada tabel Laporan-Semua",
-            groups = {"laporan-semua", "positive", "Medium"})
+            groups = {"smoke", "regression", "positive"})
     public void testSIT_ADM_UI_026_LaporanSemuaCheckInOutColumns() {
         ExtentTestManager.logInfo("SIT_ADM_UI_026 [Laporan-Semua] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_SEMUA);
+        page.ensureTableHasRowsIfEmpty();
 
         Assert.assertTrue(page.hasTableHeaderContaining("JAM MASUK"), "Kolom Jam Masuk harus tampil.");
         Assert.assertTrue(page.hasTableHeaderContaining("JAM KELUAR"), "Kolom Jam Keluar harus tampil.");
@@ -126,10 +127,11 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 27, description = "SIT_ADM_UI_027: Verifikasi kelengkapan kolom Nama Karyawan, Unit, Lokasi Masuk/Keluar, Status, dan Notes pada Laporan-Semua",
-            groups = {"laporan-semua", "positive", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_027_LaporanSemuaColumnsAndNotesExpand() {
         ExtentTestManager.logInfo("SIT_ADM_UI_027 [Laporan-Semua] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_SEMUA);
+        page.ensureTableHasRowsIfEmpty();
 
         List<String> headers = page.getTableHeadersText();
         Assert.assertTrue(headers.stream().anyMatch(h -> h.contains("NAMA")), "Kolom Nama Karyawan harus ada.");
@@ -141,10 +143,11 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 28, description = "SIT_ADM_UI_028: [Known Defect] Verifikasi foto avatar presensi pada kolom pertama tabel Laporan-Semua tampil utuh",
-            groups = {"laporan-semua", "known-defect", "High"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_028_LaporanSemuaAvatarImageLoaded() {
         ExtentTestManager.logInfo("SIT_ADM_UI_028 [Laporan-Semua] Known Defect Check | Severity: High | Priority: P1");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_SEMUA);
+        page.ensureTableHasRowsIfEmpty();
 
         boolean loaded = page.areAllAvatarUploadImagesLoaded();
         Assert.assertTrue(loaded,
@@ -152,7 +155,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 29, description = "SIT_ADM_UI_029: Pencarian data pada Laporan-Semua berdasarkan nama karyawan valid",
-            groups = {"laporan-semua", "positive", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_029_LaporanSemuaSearchValidName() {
         ExtentTestManager.logInfo("SIT_ADM_UI_029 [Laporan-Semua] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_SEMUA);
@@ -164,7 +167,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 30, description = "SIT_ADM_UI_030: Pencarian data pada Laporan-Semua dengan nama yang tidak ditemukan",
-            groups = {"laporan-semua", "negative", "Low"})
+            groups = {"regression", "negative"})
     public void testSIT_ADM_UI_030_LaporanSemuaSearchNotFound() {
         ExtentTestManager.logInfo("SIT_ADM_UI_030 [Laporan-Semua] Severity: Low | Priority: P3");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_SEMUA);
@@ -175,7 +178,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 31, description = "SIT_ADM_UI_031: Filter Laporan-Semua berdasarkan rentang Start Date, End Date & Unit",
-            groups = {"laporan-semua", "positive", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_031_LaporanSemuaFilterDateAndUnit() {
         ExtentTestManager.logInfo("SIT_ADM_UI_031 [Laporan-Semua] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_SEMUA);
@@ -187,7 +190,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 32, description = "SIT_ADM_UI_032: Fungsi tombol Reset filter pada halaman Laporan-Semua",
-            groups = {"laporan-semua", "positive", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_032_LaporanSemuaResetFilter() {
         ExtentTestManager.logInfo("SIT_ADM_UI_032 [Laporan-Semua] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_SEMUA);
@@ -199,7 +202,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 33, description = "SIT_ADM_UI_033: Mengubah jumlah data per halaman (Rows per page: 5, 10, 25) pada halaman Laporan-Semua",
-            groups = {"laporan-semua", "pagination", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_033_LaporanSemuaRowsPerPage() {
         ExtentTestManager.logInfo("SIT_ADM_UI_033 [Laporan-Semua] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_SEMUA);
@@ -207,7 +210,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 34, description = "SIT_ADM_UI_034: Navigasi halaman tabel menggunakan tombol Next, Previous, First, dan Last Page pada halaman Laporan-Semua",
-            groups = {"laporan-semua", "pagination", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_034_LaporanSemuaPaginationNavigation() {
         ExtentTestManager.logInfo("SIT_ADM_UI_034 [Laporan-Semua] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_SEMUA);
@@ -219,20 +222,22 @@ public class AdminReportsGroupATest extends BaseTest {
     // =========================================================================
 
     @Test(priority = 35, description = "SIT_ADM_UI_035: Buka sub-menu Laporan-Kehadiran dan verifikasi peta Google Maps & tabel aktivitas",
-            groups = {"laporan-kehadiran", "positive", "High"})
+            groups = {"smoke", "regression", "positive"})
     public void testSIT_ADM_UI_035_LaporanKehadiranMapAndTable() {
         ExtentTestManager.logInfo("SIT_ADM_UI_035 [Laporan-Kehadiran] Severity: High | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_KEHADIRAN);
+        page.ensureTableHasRowsIfEmpty();
 
         Assert.assertTrue(page.isGoogleMapDisplayed(), "Komponen peta Google Maps harus tampil pada Laporan-Kehadiran.");
         Assert.assertTrue(page.hasTableHeaderContaining("NAMA"), "Tabel aktivitas kehadiran harus tampil.");
     }
 
     @Test(priority = 36, description = "SIT_ADM_UI_036: [Known Defect] Verifikasi foto presensi pada InfoWindow marker Maps & tabel Laporan-Kehadiran tampil utuh",
-            groups = {"laporan-kehadiran", "known-defect", "High"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_036_LaporanKehadiranPresencePhotoLoaded() {
         ExtentTestManager.logInfo("SIT_ADM_UI_036 [Laporan-Kehadiran] Known Defect Check | Severity: High | Priority: P1");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_KEHADIRAN);
+        page.ensureTableHasRowsIfEmpty();
 
         boolean loaded = page.arePresencePhotosInMapsOrTableLoaded();
         Assert.assertTrue(loaded,
@@ -240,7 +245,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 37, description = "SIT_ADM_UI_037: Pencarian karyawan berdasarkan nama dan filter tanggal pada Laporan-Kehadiran",
-            groups = {"laporan-kehadiran", "positive", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_037_LaporanKehadiranSearchAndDateFilter() {
         ExtentTestManager.logInfo("SIT_ADM_UI_037 [Laporan-Kehadiran] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_KEHADIRAN);
@@ -252,7 +257,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 38, description = "SIT_ADM_UI_038: Filter Laporan-Kehadiran berdasarkan Unit melalui modal Filter By",
-            groups = {"laporan-kehadiran", "positive", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_038_LaporanKehadiranFilterUnit() {
         ExtentTestManager.logInfo("SIT_ADM_UI_038 [Laporan-Kehadiran] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_KEHADIRAN);
@@ -263,7 +268,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 39, description = "SIT_ADM_UI_039: Fungsi tombol Reset filter pada halaman Laporan-Kehadiran",
-            groups = {"laporan-kehadiran", "positive", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_039_LaporanKehadiranResetFilter() {
         ExtentTestManager.logInfo("SIT_ADM_UI_039 [Laporan-Kehadiran] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_KEHADIRAN);
@@ -274,7 +279,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 40, description = "SIT_ADM_UI_040: Mengubah jumlah data per halaman (Rows per page: 5, 10, 25) pada halaman Laporan-Kehadiran",
-            groups = {"laporan-kehadiran", "pagination", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_040_LaporanKehadiranRowsPerPage() {
         ExtentTestManager.logInfo("SIT_ADM_UI_040 [Laporan-Kehadiran] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_KEHADIRAN);
@@ -282,7 +287,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 41, description = "SIT_ADM_UI_041: Navigasi halaman tabel menggunakan tombol Next, Previous, First, dan Last Page pada halaman Laporan-Kehadiran",
-            groups = {"laporan-kehadiran", "pagination", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_041_LaporanKehadiranPaginationNavigation() {
         ExtentTestManager.logInfo("SIT_ADM_UI_041 [Laporan-Kehadiran] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_KEHADIRAN);
@@ -294,7 +299,7 @@ public class AdminReportsGroupATest extends BaseTest {
     // =========================================================================
 
     @Test(priority = 42, description = "SIT_ADM_UI_042: Buka sub-menu Laporan-Izin dan verifikasi tabel pengajuan izin",
-            groups = {"laporan-izin", "positive", "High"})
+            groups = {"smoke", "regression", "positive"})
     public void testSIT_ADM_UI_042_LaporanIzinTableDisplayed() {
         ExtentTestManager.logInfo("SIT_ADM_UI_042 [Laporan-Izin] Severity: High | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_IZIN);
@@ -305,7 +310,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 43, description = "SIT_ADM_UI_043: Cari dan filter data pada Laporan-Izin berdasarkan nama dan tanggal",
-            groups = {"laporan-izin", "positive", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_043_LaporanIzinSearchAndDate() {
         ExtentTestManager.logInfo("SIT_ADM_UI_043 [Laporan-Izin] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_IZIN);
@@ -316,7 +321,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 44, description = "SIT_ADM_UI_044: Pencarian pada Laporan-Izin dengan nama karyawan yang tidak terdaftar",
-            groups = {"laporan-izin", "negative", "Medium"})
+            groups = {"regression", "negative"})
     public void testSIT_ADM_UI_044_LaporanIzinSearchNotFound() {
         ExtentTestManager.logInfo("SIT_ADM_UI_044 [Laporan-Izin] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_IZIN);
@@ -327,7 +332,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 45, description = "SIT_ADM_UI_045: Filter Laporan-Izin berdasarkan Unit Departemen melalui modal Filter By",
-            groups = {"laporan-izin", "positive", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_045_LaporanIzinFilterUnit() {
         ExtentTestManager.logInfo("SIT_ADM_UI_045 [Laporan-Izin] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_IZIN);
@@ -337,7 +342,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 46, description = "SIT_ADM_UI_046: Fungsi tombol Reset filter pada halaman Laporan-Izin",
-            groups = {"laporan-izin", "positive", "Low"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_046_LaporanIzinResetFilter() {
         ExtentTestManager.logInfo("SIT_ADM_UI_046 [Laporan-Izin] Severity: Low | Priority: P3");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_IZIN);
@@ -348,7 +353,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 47, description = "SIT_ADM_UI_047: Mengubah jumlah data per halaman (Rows per page: 5, 10, 25) pada halaman Laporan-Izin",
-            groups = {"laporan-izin", "pagination", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_047_LaporanIzinRowsPerPage() {
         ExtentTestManager.logInfo("SIT_ADM_UI_047 [Laporan-Izin] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_IZIN);
@@ -356,7 +361,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 48, description = "SIT_ADM_UI_048: Navigasi halaman tabel menggunakan tombol Next, Previous, First, dan Last Page pada halaman Laporan-Izin",
-            groups = {"laporan-izin", "pagination", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_048_LaporanIzinPaginationNavigation() {
         ExtentTestManager.logInfo("SIT_ADM_UI_048 [Laporan-Izin] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_IZIN);
@@ -368,7 +373,7 @@ public class AdminReportsGroupATest extends BaseTest {
     // =========================================================================
 
     @Test(priority = 49, description = "SIT_ADM_UI_049: Buka sub-menu Laporan-Izin Terlambat dan verifikasi kolom tabel",
-            groups = {"laporan-izin-terlambat", "positive", "High"})
+            groups = {"smoke", "regression", "positive"})
     public void testSIT_ADM_UI_049_LaporanIzinTerlambatTableDisplayed() {
         ExtentTestManager.logInfo("SIT_ADM_UI_049 [Laporan-Izin Terlambat] Severity: High | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_IZIN_TERLAMBAT);
@@ -379,7 +384,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 50, description = "SIT_ADM_UI_050: Pencarian nama karyawan valid pada sub-menu Laporan-Izin Terlambat",
-            groups = {"laporan-izin-terlambat", "positive", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_050_LaporanIzinTerlambatSearchValid() {
         ExtentTestManager.logInfo("SIT_ADM_UI_050 [Laporan-Izin Terlambat] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_IZIN_TERLAMBAT);
@@ -389,7 +394,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 51, description = "SIT_ADM_UI_051: Pencarian dengan kata kunci tidak ditemukan pada Laporan-Izin Terlambat",
-            groups = {"laporan-izin-terlambat", "negative", "Low"})
+            groups = {"regression", "negative"})
     public void testSIT_ADM_UI_051_LaporanIzinTerlambatSearchNotFound() {
         ExtentTestManager.logInfo("SIT_ADM_UI_051 [Laporan-Izin Terlambat] Severity: Low | Priority: P3");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_IZIN_TERLAMBAT);
@@ -400,7 +405,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 52, description = "SIT_ADM_UI_052: Filter Laporan-Izin Terlambat berdasarkan Rentang Tanggal dan Unit",
-            groups = {"laporan-izin-terlambat", "positive", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_052_LaporanIzinTerlambatFilterDateAndUnit() {
         ExtentTestManager.logInfo("SIT_ADM_UI_052 [Laporan-Izin Terlambat] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_IZIN_TERLAMBAT);
@@ -411,7 +416,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 53, description = "SIT_ADM_UI_053: Fungsi tombol Reset filter pada halaman Laporan-Izin Terlambat",
-            groups = {"laporan-izin-terlambat", "positive", "Low"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_053_LaporanIzinTerlambatResetFilter() {
         ExtentTestManager.logInfo("SIT_ADM_UI_053 [Laporan-Izin Terlambat] Severity: Low | Priority: P3");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_IZIN_TERLAMBAT);
@@ -422,7 +427,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 54, description = "SIT_ADM_UI_054: Mengubah jumlah data per halaman (Rows per page: 5, 10, 25) pada halaman Laporan-Izin Terlambat",
-            groups = {"laporan-izin-terlambat", "pagination", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_054_LaporanIzinTerlambatRowsPerPage() {
         ExtentTestManager.logInfo("SIT_ADM_UI_054 [Laporan-Izin Terlambat] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_IZIN_TERLAMBAT);
@@ -430,7 +435,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 55, description = "SIT_ADM_UI_055: Navigasi halaman tabel menggunakan tombol Next, Previous, First, dan Last Page pada halaman Laporan-Izin Terlambat",
-            groups = {"laporan-izin-terlambat", "pagination", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_055_LaporanIzinTerlambatPaginationNavigation() {
         ExtentTestManager.logInfo("SIT_ADM_UI_055 [Laporan-Izin Terlambat] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_IZIN_TERLAMBAT);
@@ -442,7 +447,7 @@ public class AdminReportsGroupATest extends BaseTest {
     // =========================================================================
 
     @Test(priority = 56, description = "SIT_ADM_UI_056: Buka sub-menu Laporan-Izin Pulang Cepat dan verifikasi tabel",
-            groups = {"laporan-izin-pulang-cepat", "positive", "High"})
+            groups = {"smoke", "regression", "positive"})
     public void testSIT_ADM_UI_056_LaporanIzinPulangCepatTableDisplayed() {
         ExtentTestManager.logInfo("SIT_ADM_UI_056 [Laporan-Izin Pulang Cepat] Severity: High | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_IZIN_PULANG_CEPAT);
@@ -453,7 +458,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 57, description = "SIT_ADM_UI_057: Pencarian nama karyawan pada Laporan-Izin Pulang Cepat",
-            groups = {"laporan-izin-pulang-cepat", "positive", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_057_LaporanIzinPulangCepatSearchValid() {
         ExtentTestManager.logInfo("SIT_ADM_UI_057 [Laporan-Izin Pulang Cepat] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_IZIN_PULANG_CEPAT);
@@ -463,7 +468,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 58, description = "SIT_ADM_UI_058: Pencarian nama tidak terdaftar pada Laporan-Izin Pulang Cepat",
-            groups = {"laporan-izin-pulang-cepat", "negative", "Medium"})
+            groups = {"regression", "negative"})
     public void testSIT_ADM_UI_058_LaporanIzinPulangCepatSearchNotFound() {
         ExtentTestManager.logInfo("SIT_ADM_UI_058 [Laporan-Izin Pulang Cepat] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_IZIN_PULANG_CEPAT);
@@ -474,7 +479,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 59, description = "SIT_ADM_UI_059: Filter Laporan-Izin Pulang Cepat berdasarkan Rentang Tanggal dan Unit",
-            groups = {"laporan-izin-pulang-cepat", "positive", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_059_LaporanIzinPulangCepatFilterDateAndUnit() {
         ExtentTestManager.logInfo("SIT_ADM_UI_059 [Laporan-Izin Pulang Cepat] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_IZIN_PULANG_CEPAT);
@@ -485,7 +490,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 60, description = "SIT_ADM_UI_060: Fungsi tombol Reset filter pada halaman Laporan-Izin Pulang Cepat",
-            groups = {"laporan-izin-pulang-cepat", "positive", "Low"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_060_LaporanIzinPulangCepatResetFilter() {
         ExtentTestManager.logInfo("SIT_ADM_UI_060 [Laporan-Izin Pulang Cepat] Severity: Low | Priority: P3");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_IZIN_PULANG_CEPAT);
@@ -496,7 +501,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 61, description = "SIT_ADM_UI_061: Mengubah jumlah data per halaman (Rows per page: 5, 10, 25) pada halaman Laporan-Izin Pulang Cepat",
-            groups = {"laporan-izin-pulang-cepat", "pagination", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_061_LaporanIzinPulangCepatRowsPerPage() {
         ExtentTestManager.logInfo("SIT_ADM_UI_061 [Laporan-Izin Pulang Cepat] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_IZIN_PULANG_CEPAT);
@@ -504,7 +509,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 62, description = "SIT_ADM_UI_062: Navigasi halaman tabel menggunakan tombol Next, Previous, First, dan Last Page pada halaman Laporan-Izin Pulang Cepat",
-            groups = {"laporan-izin-pulang-cepat", "pagination", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_062_LaporanIzinPulangCepatPaginationNavigation() {
         ExtentTestManager.logInfo("SIT_ADM_UI_062 [Laporan-Izin Pulang Cepat] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_IZIN_PULANG_CEPAT);
@@ -516,7 +521,7 @@ public class AdminReportsGroupATest extends BaseTest {
     // =========================================================================
 
     @Test(priority = 63, description = "SIT_ADM_UI_063: Buka sub-menu Laporan-Cuti dan verifikasi kolom tabel pengajuan cuti",
-            groups = {"laporan-cuti", "positive", "High"})
+            groups = {"smoke", "regression", "positive"})
     public void testSIT_ADM_UI_063_LaporanCutiTableDisplayed() {
         ExtentTestManager.logInfo("SIT_ADM_UI_063 [Laporan-Cuti] Severity: High | Priority: P2");
         AdminLeavePage page = loginAndOpenLeaveReport();
@@ -528,7 +533,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 64, description = "SIT_ADM_UI_064: Pencarian nama karyawan, filter tanggal, dan filter Unit pada Laporan-Cuti",
-            groups = {"laporan-cuti", "positive", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_064_LaporanCutiSearchDateAndUnit() {
         ExtentTestManager.logInfo("SIT_ADM_UI_064 [Laporan-Cuti] Severity: Medium | Priority: P2");
         AdminLeavePage page = loginAndOpenLeaveReport();
@@ -540,7 +545,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 65, description = "SIT_ADM_UI_065: Aksi Cancel Cuti dengan mengisi Alasan wajib pada kolom AKSI Laporan-Cuti dan cek perubahan status",
-            groups = {"laporan-cuti", "positive", "High"})
+            groups = {"smoke", "regression", "positive"})
     public void testSIT_ADM_UI_065_LaporanCutiCancelSuccess() {
         ExtentTestManager.logInfo("SIT_ADM_UI_065 [Laporan-Cuti] Severity: High | Priority: P1");
         AdminLeavePage page = loginAndOpenLeaveReport();
@@ -557,7 +562,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 66, description = "SIT_ADM_UI_066: Submit modal Cancel Cuti tanpa mengisi field 'Alasan (Wajib diisi)'",
-            groups = {"laporan-cuti", "negative", "High"})
+            groups = {"regression", "negative"})
     public void testSIT_ADM_UI_066_LaporanCutiCancelEmptyReason() {
         ExtentTestManager.logInfo("SIT_ADM_UI_066 [Laporan-Cuti] Severity: High | Priority: P1");
         AdminLeavePage page = loginAndOpenLeaveReport();
@@ -572,7 +577,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 67, description = "SIT_ADM_UI_067: Batalkan modal Cancel Cuti dengan menekan tombol 'Tidak'",
-            groups = {"laporan-cuti", "positive", "High"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_067_LaporanCutiAbortWithTidak() {
         ExtentTestManager.logInfo("SIT_ADM_UI_067 [Laporan-Cuti] Severity: High | Priority: P1");
         AdminLeavePage page = loginAndOpenLeaveReport();
@@ -585,7 +590,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 68, description = "SIT_ADM_UI_068: [Known Defect] Aksi Edit ('Ubah atasan user yang request') pada Laporan-Cuti menampilkan input dan menyimpan perubahan",
-            groups = {"laporan-cuti", "known-defect", "High"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_068_LaporanCutiEditModalHasInput() {
         ExtentTestManager.logInfo("SIT_ADM_UI_068 [Laporan-Cuti] Known Defect Check | Severity: High | Priority: P1");
         AdminLeavePage page = loginAndOpenLeaveReport();
@@ -600,7 +605,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 69, description = "SIT_ADM_UI_069: Fungsi tombol Reset filter pada halaman Laporan-Cuti",
-            groups = {"laporan-cuti", "positive", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_069_LaporanCutiResetFilter() {
         ExtentTestManager.logInfo("SIT_ADM_UI_069 [Laporan-Cuti] Severity: Medium | Priority: P2");
         AdminLeavePage page = loginAndOpenLeaveReport();
@@ -611,7 +616,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 70, description = "SIT_ADM_UI_070: Mengubah jumlah data per halaman (Rows per page: 5, 10, 25) pada halaman Laporan-Cuti",
-            groups = {"laporan-cuti", "pagination", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_070_LaporanCutiRowsPerPage() {
         ExtentTestManager.logInfo("SIT_ADM_UI_070 [Laporan-Cuti] Severity: Medium | Priority: P2");
         AdminLeavePage page = loginAndOpenLeaveReport();
@@ -619,7 +624,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 71, description = "SIT_ADM_UI_071: Navigasi halaman tabel menggunakan tombol Next, Previous, First, dan Last Page pada halaman Laporan-Cuti",
-            groups = {"laporan-cuti", "pagination", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_071_LaporanCutiPaginationNavigation() {
         ExtentTestManager.logInfo("SIT_ADM_UI_071 [Laporan-Cuti] Severity: Medium | Priority: P2");
         AdminLeavePage page = loginAndOpenLeaveReport();
@@ -631,7 +636,7 @@ public class AdminReportsGroupATest extends BaseTest {
     // =========================================================================
 
     @Test(priority = 72, description = "SIT_ADM_UI_072: Buka sub-menu Laporan-Sakit dan verifikasi tabel klaim sakit",
-            groups = {"laporan-sakit", "positive", "High"})
+            groups = {"smoke", "regression", "positive"})
     public void testSIT_ADM_UI_072_LaporanSakitTableDisplayed() {
         ExtentTestManager.logInfo("SIT_ADM_UI_072 [Laporan-Sakit] Severity: High | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_SAKIT);
@@ -642,7 +647,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 73, description = "SIT_ADM_UI_073: [Known Defect] Klik tombol 'Lihat' pada kolom FOTO di Laporan-Sakit menampilkan gambar surat dokter",
-            groups = {"laporan-sakit", "known-defect", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_073_LaporanSakitViewDoctorNoteImage() {
         ExtentTestManager.logInfo("SIT_ADM_UI_073 [Laporan-Sakit] Known Defect Check | Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_SAKIT);
@@ -654,7 +659,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 74, description = "SIT_ADM_UI_074: [Known Defect] Klik tombol 'Download' pada kolom FOTO di Laporan-Sakit mengunduh file surat dokter",
-            groups = {"laporan-sakit", "known-defect", "High"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_074_LaporanSakitDownloadDoctorNote() {
         ExtentTestManager.logInfo("SIT_ADM_UI_074 [Laporan-Sakit] Known Defect Check | Severity: High | Priority: P1");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_SAKIT);
@@ -668,7 +673,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 75, description = "SIT_ADM_UI_075: Pencarian nama karyawan dan filter tanggal pada Laporan-Sakit",
-            groups = {"laporan-sakit", "positive", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_075_LaporanSakitSearchAndDate() {
         ExtentTestManager.logInfo("SIT_ADM_UI_075 [Laporan-Sakit] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_SAKIT);
@@ -679,7 +684,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 76, description = "SIT_ADM_UI_076: Filter Laporan-Sakit berdasarkan Unit melalui modal Filter By",
-            groups = {"laporan-sakit", "positive", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_076_LaporanSakitFilterUnit() {
         ExtentTestManager.logInfo("SIT_ADM_UI_076 [Laporan-Sakit] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_SAKIT);
@@ -689,7 +694,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 77, description = "SIT_ADM_UI_077: Fungsi tombol Reset filter pada halaman Laporan-Sakit",
-            groups = {"laporan-sakit", "positive", "Low"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_077_LaporanSakitResetFilter() {
         ExtentTestManager.logInfo("SIT_ADM_UI_077 [Laporan-Sakit] Severity: Low | Priority: P3");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_SAKIT);
@@ -700,7 +705,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 78, description = "SIT_ADM_UI_078: Mengubah jumlah data per halaman (Rows per page: 5, 10, 25) pada halaman Laporan-Sakit",
-            groups = {"laporan-sakit", "pagination", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_078_LaporanSakitRowsPerPage() {
         ExtentTestManager.logInfo("SIT_ADM_UI_078 [Laporan-Sakit] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_SAKIT);
@@ -708,7 +713,7 @@ public class AdminReportsGroupATest extends BaseTest {
     }
 
     @Test(priority = 79, description = "SIT_ADM_UI_079: Navigasi halaman tabel menggunakan tombol Next, Previous, First, dan Last Page pada halaman Laporan-Sakit",
-            groups = {"laporan-sakit", "pagination", "Medium"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_079_LaporanSakitPaginationNavigation() {
         ExtentTestManager.logInfo("SIT_ADM_UI_079 [Laporan-Sakit] Severity: Medium | Priority: P2");
         AdminReportsGroupAPage page = loginAndOpenReport(AdminReportsGroupAPage.URL_SAKIT);

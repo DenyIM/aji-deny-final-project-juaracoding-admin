@@ -68,7 +68,7 @@ public class AdminDashboardTest extends BaseTest {
     // ==========================================
 
     @Test(priority = 1, description = "SIT_ADM_UI_013: Buka sub-menu Dashboard-Dashboard dan verifikasi kartu 'Total semua karyawan'",
-            groups = {"smoke", "dashboard"})
+            groups = {"smoke", "regression", "positive"})
     public void testSIT_ADM_UI_013_TotalSemuaKaryawanCard() {
         AdminDashboardPage dashboardPage = loginAndNavigateToDashboard();
         ExtentTestManager.logInfo("SIT_ADM_UI_013 - Memverifikasi kartu 'Total semua karyawan' dan jumlah aktif.");
@@ -83,7 +83,7 @@ public class AdminDashboardTest extends BaseTest {
     }
 
     @Test(priority = 2, description = "SIT_ADM_UI_014: Verifikasi kartu 'Total absen hari ini' beserta grafik Donut Chart",
-            groups = {"smoke", "dashboard"})
+            groups = {"smoke", "regression", "positive"})
     public void testSIT_ADM_UI_014_TotalAbsenHariIniAndDonutChart() {
         AdminDashboardPage dashboardPage = loginAndNavigateToDashboard();
         ExtentTestManager.logInfo("SIT_ADM_UI_014 - Memverifikasi kartu 'Total absen hari ini' dan grafik ApexCharts.");
@@ -100,7 +100,7 @@ public class AdminDashboardTest extends BaseTest {
     }
 
     @Test(priority = 3, description = "SIT_ADM_UI_015: Verifikasi kartu 'Karyawan yang sedang WFH hari ini' dan daftar user",
-            groups = {"regression", "dashboard"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_015_KaryawanWfhHariIni() {
         AdminDashboardPage dashboardPage = loginAndNavigateToDashboard();
         ExtentTestManager.logInfo("SIT_ADM_UI_015 - Memverifikasi kartu 'Karyawan yang sedang WFH hari ini'.");
@@ -115,7 +115,7 @@ public class AdminDashboardTest extends BaseTest {
     }
 
     @Test(priority = 4, description = "SIT_ADM_UI_016: Verifikasi kartu 'Karyawan yang sedang cuti hari ini' dan daftar user",
-            groups = {"regression", "dashboard"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_016_KaryawanCutiHariIni() {
         AdminDashboardPage dashboardPage = loginAndNavigateToDashboard();
         ExtentTestManager.logInfo("SIT_ADM_UI_016 - Memverifikasi kartu 'Karyawan yang sedang cuti hari ini'.");
@@ -130,7 +130,7 @@ public class AdminDashboardTest extends BaseTest {
     }
 
     @Test(priority = 5, description = "SIT_ADM_UI_017: Verifikasi kartu 'Karyawan yang sedang sakit hari ini' dan daftar user",
-            groups = {"regression", "dashboard"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_017_KaryawanSakitHariIni() {
         AdminDashboardPage dashboardPage = loginAndNavigateToDashboard();
         ExtentTestManager.logInfo("SIT_ADM_UI_017 - Memverifikasi kartu 'Karyawan yang sedang sakit hari ini'.");
@@ -145,7 +145,7 @@ public class AdminDashboardTest extends BaseTest {
     }
 
     @Test(priority = 6, description = "SIT_ADM_UI_018: Verifikasi kartu 'Karyawan yang sedang Izin hari ini' dan daftar user",
-            groups = {"regression", "dashboard"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_018_KaryawanIzinHariIni() {
         AdminDashboardPage dashboardPage = loginAndNavigateToDashboard();
         ExtentTestManager.logInfo("SIT_ADM_UI_018 - Memverifikasi kartu 'Karyawan yang sedang Izin hari ini'.");
@@ -164,7 +164,7 @@ public class AdminDashboardTest extends BaseTest {
     // ==========================================
 
     @Test(priority = 7, description = "SIT_ADM_UI_019: Verifikasi 3 kolom Validator (1, 2, 3) pada Dashboard-Pending",
-            groups = {"smoke", "pending"})
+            groups = {"smoke", "regression", "positive"})
     public void testSIT_ADM_UI_019_ThreeValidatorColumnsAndTables() {
         AdminDashboardPage pendingPage = loginAndNavigateToPending();
         ExtentTestManager.logInfo("SIT_ADM_UI_019 - Memverifikasi 3 kolom Validator beserta tabel Cuti & Lembur.");
@@ -181,7 +181,7 @@ public class AdminDashboardTest extends BaseTest {
     }
 
     @Test(priority = 8, description = "SIT_ADM_UI_020: Filter data pada Dashboard-Pending dengan rentang tanggal valid",
-            groups = {"regression", "pending"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_020_FilterDateRangeValid() {
         AdminDashboardPage pendingPage = loginAndNavigateToPending();
         ExtentTestManager.logInfo("SIT_ADM_UI_020 - Filter rentang tanggal valid menggunakan date picker kalender.");
@@ -205,7 +205,7 @@ public class AdminDashboardTest extends BaseTest {
     }
 
     @Test(priority = 9, description = "SIT_ADM_UI_021: Filter data pada Dashboard-Pending dengan Start Date lebih besar dari End Date",
-            groups = {"negative", "pending"})
+            groups = {"regression", "negative"})
     public void testSIT_ADM_UI_021_FilterDateRangeInverted() {
         AdminDashboardPage pendingPage = loginAndNavigateToPending();
         ExtentTestManager.logInfo("SIT_ADM_UI_021 - Menguji filter dengan Start Date > End Date (rentang tanggal terbalik).");
@@ -224,7 +224,7 @@ public class AdminDashboardTest extends BaseTest {
     }
 
     @Test(priority = 10, description = "SIT_ADM_UI_022: Filter data pada Dashboard-Pending berdasarkan Unit (Modal Filter By)",
-            groups = {"regression", "pending"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_022_FilterByUnitModal() {
         AdminDashboardPage pendingPage = loginAndNavigateToPending();
         ExtentTestManager.logInfo("SIT_ADM_UI_022 - Filter berdasarkan Unit via modal Filter By.");
@@ -248,7 +248,7 @@ public class AdminDashboardTest extends BaseTest {
     }
 
     @Test(priority = 11, description = "SIT_ADM_UI_023: Buka modal Filter By pada Dashboard-Pending lalu klik tombol Batal",
-            groups = {"regression", "pending"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_023_CancelFilterByModal() {
         AdminDashboardPage pendingPage = loginAndNavigateToPending();
         ExtentTestManager.logInfo("SIT_ADM_UI_023 - Buka modal Filter By lalu klik Batal.");
@@ -263,7 +263,7 @@ public class AdminDashboardTest extends BaseTest {
     }
 
     @Test(priority = 12, description = "SIT_ADM_UI_024: Fungsi tombol Reset filter pada halaman Dashboard-Pending",
-            groups = {"regression", "pending"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_024_ResetFilterFunction() {
         AdminDashboardPage pendingPage = loginAndNavigateToPending();
         ExtentTestManager.logInfo("SIT_ADM_UI_024 - Menguji fungsi tombol Reset setelah filter diterapkan.");
@@ -288,7 +288,7 @@ public class AdminDashboardTest extends BaseTest {
     }
 
     @Test(priority = 13, description = "SIT_ADM_UI_025: Klik nama upliner pada tabel Validator di Dashboard-Pending menuju detail",
-            groups = {"regression", "pending"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_025_ClickUplinerNameToDetail() {
         AdminDashboardPage pendingPage = loginAndNavigateToPending();
         ExtentTestManager.logInfo("SIT_ADM_UI_025 - Mengklik link nama Upliner pada Validator 1 menuju detail.");

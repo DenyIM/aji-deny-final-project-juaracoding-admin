@@ -118,6 +118,17 @@ public class AdminReportsGroupAPage extends BasePage {
         return rows.size();
     }
 
+    /**
+     * Jika filter tanggal default (hari ini) belum memiliki data presensi,
+     * terapkan filter tanggal awal-pertengahan bulan berjalan agar skenario tetap deterministik.
+     */
+    public void ensureTableHasRowsIfEmpty() {
+        if (getTableRowCount() == 0) {
+            logger.info("Default date filter has 0 rows; applying current month date range filter.");
+            applyDateRangeFilter(true);
+        }
+    }
+
     public String getTableBodyText() {
         List<WebElement> rows = driver.findElements(TABLE_ROWS);
         if (rows.isEmpty()) {

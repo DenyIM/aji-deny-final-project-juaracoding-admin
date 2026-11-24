@@ -22,7 +22,7 @@ public class AdminLoginTest extends BaseTest {
     }
 
     @Test(priority = 1, description = "SIT_ADM_UI_001: Login Admin HRD dengan kredensial valid (admin@hadir.com)",
-            groups = {"smoke", "auth"})
+            groups = {"smoke", "regression", "positive"})
     public void testSIT_ADM_UI_001_ValidAdminLogin() {
         AdminLoginPage loginPage = openLoginPage();
         ExtentTestManager.logInfo("SIT_ADM_UI_001 - Login menggunakan email Admin valid & password hasil decode Base64.");
@@ -38,7 +38,7 @@ public class AdminLoginTest extends BaseTest {
     }
 
     @Test(priority = 2, description = "SIT_ADM_UI_002: Login Admin HRD dengan password salah",
-            groups = {"negative", "auth"})
+            groups = {"regression", "negative"})
     public void testSIT_ADM_UI_002_InvalidPassword() {
         AdminLoginPage loginPage = openLoginPage();
         ExtentTestManager.logInfo("SIT_ADM_UI_002 - Menguji penolakan login Admin dengan password salah.");
@@ -54,7 +54,7 @@ public class AdminLoginTest extends BaseTest {
     }
 
     @Test(priority = 3, description = "SIT_ADM_UI_003: Login Admin HRD dengan email tidak terdaftar",
-            groups = {"negative", "auth"})
+            groups = {"regression", "negative"})
     public void testSIT_ADM_UI_003_UnregisteredEmail() {
         AdminLoginPage loginPage = openLoginPage();
         ExtentTestManager.logInfo("SIT_ADM_UI_003 - Menguji penolakan login Admin dengan email tidak terdaftar.");
@@ -70,7 +70,7 @@ public class AdminLoginTest extends BaseTest {
     }
 
     @Test(priority = 4, description = "SIT_ADM_UI_004: Login Admin HRD dengan format email tanpa karakter @",
-            groups = {"negative", "auth"})
+            groups = {"regression", "negative"})
     public void testSIT_ADM_UI_004_InvalidEmailFormatWithoutAt() {
         AdminLoginPage loginPage = openLoginPage();
         ExtentTestManager.logInfo("SIT_ADM_UI_004 - Menguji validasi HTML5 format email tanpa '@'.");
@@ -86,7 +86,7 @@ public class AdminLoginTest extends BaseTest {
     }
 
     @Test(priority = 5, description = "SIT_ADM_UI_005: Login Admin HRD dengan field email dikosongkan",
-            groups = {"negative", "auth"})
+            groups = {"regression", "negative"})
     public void testSIT_ADM_UI_005_EmptyEmailField() {
         AdminLoginPage loginPage = openLoginPage();
         ExtentTestManager.logInfo("SIT_ADM_UI_005 - Menguji login dengan field email kosong.");
@@ -100,7 +100,7 @@ public class AdminLoginTest extends BaseTest {
     }
 
     @Test(priority = 6, description = "SIT_ADM_UI_006: Login Admin HRD dengan field password dikosongkan",
-            groups = {"negative", "auth"})
+            groups = {"regression", "negative"})
     public void testSIT_ADM_UI_006_EmptyPasswordField() {
         AdminLoginPage loginPage = openLoginPage();
         ExtentTestManager.logInfo("SIT_ADM_UI_006 - Menguji login dengan field password kosong.");
@@ -114,7 +114,7 @@ public class AdminLoginTest extends BaseTest {
     }
 
     @Test(priority = 7, description = "SIT_ADM_UI_007: Login Admin HRD dengan seluruh field kosong",
-            groups = {"negative", "auth"})
+            groups = {"regression", "negative"})
     public void testSIT_ADM_UI_007_BothFieldsEmpty() {
         AdminLoginPage loginPage = openLoginPage();
         ExtentTestManager.logInfo("SIT_ADM_UI_007 - Menguji submit form dengan email & password kosong.");
@@ -128,7 +128,7 @@ public class AdminLoginTest extends BaseTest {
     }
 
     @Test(priority = 8, description = "SIT_ADM_UI_008: Verifikasi fungsi tombol ikon mata (Show/Hide Password)",
-            groups = {"regression", "auth"})
+            groups = {"regression", "positive"})
     public void testSIT_ADM_UI_008_ShowHidePasswordToggle() {
         AdminLoginPage loginPage = openLoginPage();
         ExtentTestManager.logInfo("SIT_ADM_UI_008 - Menguji toggle ikon mata pada field password.");
@@ -151,7 +151,7 @@ public class AdminLoginTest extends BaseTest {
     }
 
     @Test(priority = 9, description = "SIT_ADM_UI_009: Uji keamanan SQL Injection pada field email Login Admin",
-            groups = {"security", "negative", "auth"})
+            groups = {"regression", "negative"})
     public void testSIT_ADM_UI_009_SqlInjectionOnEmail() {
         AdminLoginPage loginPage = openLoginPage();
         ExtentTestManager.logInfo("SIT_ADM_UI_009 - Menguji ketahanan form login terhadap SQL Injection payload.");
@@ -167,7 +167,7 @@ public class AdminLoginTest extends BaseTest {
     }
 
     @Test(priority = 10, description = "SIT_ADM_UI_010: Uji keamanan XSS Injection pada field email Login Admin",
-            groups = {"security", "negative", "auth"})
+            groups = {"regression", "negative"})
     public void testSIT_ADM_UI_010_XssInjectionOnEmail() {
         AdminLoginPage loginPage = openLoginPage();
         ExtentTestManager.logInfo("SIT_ADM_UI_010 - Menguji ketahanan form login terhadap XSS script payload.");
@@ -185,7 +185,7 @@ public class AdminLoginTest extends BaseTest {
     }
 
     @Test(priority = 11, description = "SIT_ADM_UI_011: Akses langsung URL /dashboards/pending tanpa login",
-            groups = {"security", "negative", "auth"})
+            groups = {"regression", "negative"})
     public void testSIT_ADM_UI_011_UnauthenticatedDirectAccess() {
         AdminLoginPage loginPage = new AdminLoginPage(getDriver());
         ExtentTestManager.logInfo("SIT_ADM_UI_011 - Mengakses langsung /dashboards/pending tanpa sesi login.");
@@ -200,7 +200,7 @@ public class AdminLoginTest extends BaseTest {
     }
 
     @Test(priority = 12, description = "SIT_ADM_UI_012: Logout Admin HRD dan verifikasi penghapusan session",
-            groups = {"smoke", "auth"})
+            groups = {"smoke", "regression", "positive"})
     public void testSIT_ADM_UI_012_AdminLogoutAndSessionClear() {
         AdminLoginPage loginPage = openLoginPage();
         ExtentTestManager.logInfo("SIT_ADM_UI_012 - Login sebagai Admin lalu melakukan proses Logout.");
