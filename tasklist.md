@@ -13,8 +13,8 @@ Khusus repositori ini difokuskan pada **Portal Admin HRD** (**381 Test Cases**: 
 | **Fase 1** | Discovery Menu & API Riil, Audit & Refactor SIT v3 (5 Perbaikan Tester Aji + 10 Revisi Live Chunk + Pagination Menyeluruh), & Update `WebKaryawanPrompt.md` | `plan.md`, `tasklist.md`, `docs/SIT_Scenario_Magang_Hadir.xlsx` (576 TCs total), `WebKaryawanPrompt.md` | Shared Foundation | ✅ Selesai (Completed) |
 | **Fase 2** | Maven Setup (`pom.xml` Selenium `4.52.0`) & Struktur Package Terisolasi (`deny` & `aji`) | `pom.xml`, `.gitignore`, `.editorconfig`, `src/main/...`, `src/test/...`, `testdata/` | Shared Foundation | ✅ Selesai (Completed) |
 | **Fase 3** | Core Thread-Safe Engine, Keamanan Base64, & Hybrid API Seeding Helper | `SecurityUtil`, `Constants`, `DriverFactory` (`headless=true`), `BasePage`, `BaseTest`, `BaseApiTest`, `EmployeeApiHelper`, `ExtentManager`, `TestListener` | Shared Foundation | ✅ Selesai (Completed) |
-| **Fase 4** | Page Object Model (POM) Admin Implementation | POM Deny (5+ Classes) & POM Aji (5+ Classes) | Deny & Aji | 🔄 In Progress (4.1 Login merged) |
-| **Fase 5** | Automated Tests Implementation (Web UI + REST Assured API + Hybrid API+UI + E2E Lintas Modul) | `tests/admin/deny/*` (173 UI), `tests/admin/aji/*` (148 UI), `AdminGroupAApiTest` (30 API), `AdminGroupBApiTest` (30 API) | Deny (203 TCs) & Aji (178 TCs) | 🔄 In Progress (5.1 Login merged) |
+| **Fase 4** | Page Object Model (POM) Admin Implementation | POM Deny (5+ Classes) & POM Aji (5+ Classes) | Deny & Aji | 🔄 In Progress (4.1 Login & 4.6 Dashboard merged) |
+| **Fase 5** | Automated Tests Implementation (Web UI + REST Assured API + Hybrid API+UI + E2E Lintas Modul) | `tests/admin/deny/*` (173 UI), `tests/admin/aji/*` (148 UI), `AdminGroupAApiTest` (30 API), `AdminGroupBApiTest` (30 API) | Deny (203 TCs) & Aji (178 TCs) | 🔄 In Progress (5.1 Login & 5.7 Dashboard merged) |
 | **Fase 6** | TestNG Multi-Suite Runner (`testng`, `testng-deny`, `testng-aji`) & Verifikasi Headless | `testng.xml`, `testng-deny.xml`, `testng-aji.xml` | Deny & Aji | ⏳ Pending |
 | **Fase 7** | Validasi ExtentReports Dashboard, Sinkronisasi Status SIT v3, README & Walkthrough | `reports/ExtentReport.html`, `README.md`, `walkthrough.md` | Shared Deliverable | ⏳ Pending |
 
@@ -85,7 +85,7 @@ Khusus repositori ini difokuskan pada **Portal Admin HRD** (**381 Test Cases**: 
 - [ ] **4.5.** `AdminManagementGroupAPage.java` (9 sub-menu: User [+filter lengkap & pagination], Pendaftaran User [+foto preview & Jumlah Cuti], Pendaftaran Sendiri [+pagination], Divisi, Unit + Type-Shift + `Atur Virtual ID`, Unit Setting, Posisi, Client Upliner + BCA, Absen Point)
 
 #### 👤 Bagian Tester Aji (`pages/admin/aji/`):
-- [ ] **4.6.** `AdminDashboardPage.java` (`Dashboard-Dashboard` & `Dashboard-Pending`)
+- [x] **4.6.** `AdminDashboardPage.java` (`Dashboard-Dashboard` & `Dashboard-Pending`) — *✅ Selesai & merged ke `main`*
 - [ ] **4.7.** `AdminReportsGroupBPage.java` (`Lembur`, `Validasi Lembur`, `Shifting`, `Meeting` + `Participants`)
 - [ ] **4.8.** `AdminApprovalPage.java` (`Perjalanan Dinas`, `Koreksi`, `Izin Off`)
 - [ ] **4.9.** `AdminDownloadPage.java` (`Download Absen`, `Download Absen V2`, `Sisa Cuti`, `Daily Report`)
@@ -103,7 +103,7 @@ Khusus repositori ini difokuskan pada **Portal Admin HRD** (**381 Test Cases**: 
 - [ ] **5.6.** `AdminGroupAApiTest.java` (`SIT_ADM_API_001–030`: 30 TCs)
 
 #### 👤 Bagian Tester Aji (178 TCs = 148 UI + 30 API):
-- [ ] **5.7.** `AdminDashboardTest.java` (`SIT_ADM_UI_013–025`: 13 TCs, termasuk Hybrid `Dashboard-Pending`)
+- [x] **5.7.** `AdminDashboardTest.java` (`SIT_ADM_UI_013–025`: 13 TCs, termasuk Hybrid `Dashboard-Pending`) — *✅ Selesai & merged ke `main`*
 - [ ] **5.8.** `AdminReportsGroupBTest.java` (`SIT_ADM_UI_080–153`: 74 TCs, termasuk Hybrid Approve/Reject & Pagination 7 tabel + `InfiniteScroll` Daily Report)
 - [ ] **5.9.** `AdminManagementGroupBTest.java` (`SIT_ADM_UI_255–310`: 56 TCs, termasuk Pagination 8 menu)
 - [ ] **5.10.** `AdminCrossModuleAjiE2ETest.java` (`SIT_ADM_UI_317–321`: 5 TCs Integrasi Lintas Modul Aji)

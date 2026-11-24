@@ -373,6 +373,10 @@ public class AdminDashboardPage extends BasePage {
         String href = link.getAttribute("href");
         scrollToElement(link);
         click(link);
+        wait.until(ExpectedConditions.or(
+                ExpectedConditions.urlContains("/admin/v1-cuti/"),
+                ExpectedConditions.urlContains("/admin/v1-lembur/")
+        ));
         return href;
     }
 }

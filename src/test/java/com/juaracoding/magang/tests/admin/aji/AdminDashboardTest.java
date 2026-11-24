@@ -218,7 +218,6 @@ public class AdminDashboardTest extends BaseTest {
         ExtentTestManager.logInfo("URL setelah submit rentang terbalik: " + currentUrl);
 
         boolean emptyOrRejected = pendingPage.areValidatorTablesEmpty()
-                || currentUrl.contains("start_date=2026-11-25")
                 || !currentUrl.contains("start_date=2026-11-25");
         Assert.assertTrue(emptyOrRejected,
                 "Sistem harus menampilkan tabel data kosong atau menolak rentang tanggal terbalik.");
@@ -282,7 +281,9 @@ public class AdminDashboardTest extends BaseTest {
         String resetEndDate = pendingPage.getEndDateValue();
         ExtentTestManager.logInfo("Nilai setelah Reset -> Start Date: [" + resetStartDate + "], End Date: [" + resetEndDate + "]");
 
-        Assert.assertTrue(!resetStartDate.equals("2026-10-01") || resetStartDate.equals(initialStartDate),
+        Assert.assertTrue(!resetStartDate.equals("2026-10-01")
+                        && (resetStartDate.isEmpty() || resetStartDate.equals(initialStartDate))
+                        && (resetEndDate.isEmpty() || resetEndDate.equals(initialEndDate)),
                 "Input tanggal harus kembali ke kondisi default atau bersih setelah Reset diklik.");
     }
 
