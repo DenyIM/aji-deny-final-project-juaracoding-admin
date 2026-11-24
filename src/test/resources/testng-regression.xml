@@ -19,6 +19,7 @@
             <class name="com.juaracoding.magang.tests.admin.deny.AdminLoginTest" />
             <class name="com.juaracoding.magang.tests.admin.aji.AdminDashboardTest" />
             <class name="com.juaracoding.magang.tests.admin.deny.AdminReportsGroupATest" />
+            <class name="com.juaracoding.magang.tests.admin.deny.AdminImportTest" />
         </classes>
     </test>
 
