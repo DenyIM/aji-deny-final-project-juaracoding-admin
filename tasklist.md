@@ -1,8 +1,8 @@
-# 📌 Tasklist Pelaksanaan: Automation Testing Admin `magang.dikahadir.com` (381 Admin TCs + Blueprint Proyek Karyawan)
+# 📌 Tasklist Pelaksanaan: Automation Testing Admin `magang.dikahadir.com` (451 Admin TCs + Blueprint Proyek Karyawan)
 
 Roadmap pengujian otomatisasi berbasis **Java 21**, **Selenium WebDriver `4.52.0`** (default `headless = true`), **REST Assured `6.3.0`**, **TestNG `7.12.0`**, dan **ExtentReports `5.1.2`** dengan struktur standar industri mengacu pada `reference.md`.
 
-Khusus repositori ini difokuskan pada **Portal Admin HRD** (**381 Test Cases**: **321 Web UI** + **60 REST Assured API**), sedangkan seluruh panduan, struktur, pembagian tester, endpoint API, dan *master prompt* untuk repositori **Web Karyawan** (`195 TCs`: `140 Web UI` + `55 REST Assured API`) telah disiapkan melalui dokumen [WebKaryawanPrompt.md](file:///c:/Users/Asus/Documents/JuaraCoding/Final/final-project-admin/WebKaryawanPrompt.md) dan matriks [docs/SIT_Scenario_Magang_Hadir.xlsx](file:///c:/Users/Asus/Documents/JuaraCoding/Final/final-project-admin/docs/SIT_Scenario_Magang_Hadir.xlsx).
+Khusus repositori ini difokuskan pada **Portal Admin HRD** (**451 Test Cases**: **321 Web UI** + **130 REST Assured API**), sedangkan seluruh panduan, struktur, pembagian tester, endpoint API, dan *master prompt* untuk repositori **Web Karyawan** (`250 TCs`: `140 Web UI` + `110 REST Assured API`) telah disiapkan melalui dokumen [WebKaryawanPrompt.md](file:///c:/Users/Asus/Documents/JuaraCoding/Final/final-project-admin/WebKaryawanPrompt.md) dan matriks [docs/SIT_Scenario_Magang_Hadir.xlsx](file:///c:/Users/Asus/Documents/JuaraCoding/Final/final-project-admin/docs/SIT_Scenario_Magang_Hadir.xlsx) (**v4 — 701 TCs + kolom `Manual Check`**).
 
 ---
 
@@ -10,22 +10,22 @@ Khusus repositori ini difokuskan pada **Portal Admin HRD** (**381 Test Cases**: 
 
 | Fase | Deskripsi Fase | Output Deliverables | Penanggung Jawab | Status |
 | :---: | :--- | :--- | :---: | :---: |
-| **Fase 1** | Discovery Menu & API Riil, Audit & Refactor SIT v3 (5 Perbaikan Tester Aji + 10 Revisi Live Chunk + Pagination Menyeluruh), & Update `WebKaryawanPrompt.md` | `plan.md`, `tasklist.md`, `docs/SIT_Scenario_Magang_Hadir.xlsx` (576 TCs total), `WebKaryawanPrompt.md` | Shared Foundation | ✅ Selesai (Completed) |
+| **Fase 1** | Discovery Menu & API Riil, Audit & Ekspansi SIT v4 (+125 API TCs & Kolom `Manual Check`), & Update `WebKaryawanPrompt.md` | `plan.md`, `tasklist.md`, `docs/SIT_Scenario_Magang_Hadir.xlsx` (701 TCs total), `WebKaryawanPrompt.md` | Shared Foundation | ✅ Selesai (Completed) |
 | **Fase 2** | Maven Setup (`pom.xml` Selenium `4.52.0`) & Struktur Package Terisolasi (`deny` & `aji`) | `pom.xml`, `.gitignore`, `.editorconfig`, `src/main/...`, `src/test/...`, `testdata/` | Shared Foundation | ✅ Selesai (Completed) |
 | **Fase 3** | Core Thread-Safe Engine, Keamanan Base64, & Hybrid API Seeding Helper | `SecurityUtil`, `Constants`, `DriverFactory` (`headless=true`), `BasePage`, `BaseTest`, `BaseApiTest`, `EmployeeApiHelper`, `ExtentManager`, `TestListener` | Shared Foundation | ✅ Selesai (Completed) |
-| **Fase 4** | Page Object Model (POM) Admin Implementation | POM Deny (5+ Classes) & POM Aji (5+ Classes) | Deny & Aji | 🔄 In Progress (4.1 Login, 4.2-4.4 Laporan A & Import, 4.6 Dashboard merged) |
-| **Fase 5** | Automated Tests Implementation (Web UI + REST Assured API + Hybrid API+UI + E2E Lintas Modul) | `tests/admin/deny/*` (173 UI), `tests/admin/aji/*` (148 UI), `AdminGroupAApiTest` (30 API), `AdminGroupBApiTest` (30 API) | Deny (203 TCs) & Aji (178 TCs) | 🔄 In Progress (5.1 Login, 5.2 Laporan A, 5.3 Import & 5.7 Dashboard merged) |
-| **Fase 6** | TestNG Multi-Suite Runner (`testng`, `testng-smoke`, `testng-regression`, `testng-positive`, `testng-negative`, `testng-deny`, `testng-aji`) & Verifikasi Headless | `testng.xml`, `testng-smoke.xml`, `testng-regression.xml`, `testng-positive.xml`, `testng-negative.xml` | Deny & Aji | 🔄 In Progress (4-Category Suites Added) |
-| **Fase 7** | Validasi ExtentReports Dashboard, Sinkronisasi Status SIT v3, README & Walkthrough | `reports/ExtentReport.html`, `README.md`, `walkthrough.md` | Shared Deliverable | ⏳ Pending |
+| **Fase 4** | Page Object Model (POM) Admin Implementation | POM Deny (5 Classes selesai) & POM Aji (1/5 Classes selesai) | Deny & Aji | 🔄 In Progress (Seluruh POM Deny selesai & merged; Aji 4.6 Dashboard merged) |
+| **Fase 5** | Automated Tests Implementation (Web UI + REST Assured API + Hybrid API+UI + E2E Lintas Modul) | `tests/admin/deny/*` (167/173 UI merged), `tests/admin/aji/*` (13/148 UI merged), `AdminGroupAApiTest` (65 API), `AdminGroupBApiTest` (65 API) | Deny (238 TCs) & Aji (213 TCs) | 🔄 In Progress (Deny UI 167 TCs & Aji Dashboard 13 TCs merged) |
+| **Fase 6** | TestNG Multi-Suite Runner (`testng`, `testng-smoke`, `testng-regression`, `testng-positive`, `testng-negative`, `testng-deny`, `testng-aji`) & Verifikasi Headless | `testng.xml`, `testng-smoke.xml`, `testng-regression.xml`, `testng-positive.xml`, `testng-negative.xml` | Deny & Aji | 🔄 In Progress (5 XML Suites Active for 180 TCs) |
+| **Fase 7** | Validasi ExtentReports Dashboard, Sinkronisasi Status SIT v4, README & Walkthrough | `reports/ExtentReport.html`, `README.md`, `walkthrough.md` | Shared Deliverable | ⏳ Pending |
 
 ---
 
-## ⚖️ Matriks Pembagian Tugas Adil (Proyek Admin — Total 381 TCs)
+## ⚖️ Matriks Pembagian Tugas Adil (Proyek Admin — Total 451 TCs)
 
-| Aspek Kolaborasi | 👤 Tester Deny (203 TCs — 53.3%) | 👤 Tester Aji (178 TCs — 46.7%) |
+| Aspek Kolaborasi | 👤 Tester Deny (238 TCs — 52.8%) | 👤 Tester Aji (213 TCs — 47.2%) |
 | :--- | :--- | :--- |
-| **Fitur Web UI (Selenium)** | **173 TCs**:<br>1. `Autentikasi-Login` (12 TCs: `001–012`, *preserved on branch `feature/deny-admin-login`*)<br>2. `Laporan Group A` (54 TCs paginated: Semua `026–034`, Kehadiran `035–041`, Izin `042–048`, Izin Terlambat `049–055`, Izin Pulang Cepat `056–062`, Cuti *[Hybrid]* `063–071`, Sakit `072–079`)<br>3. `Import` (16 TCs: 4 sub-menu — `154–169`)<br>4. `Management Group A` (85 TCs: User `170–191` [+filter lengkap & pagination], Pendaftaran User `192–200` [+foto preview & Jumlah Cuti], Pendaftaran Sendiri `201–207` [+pagination], Divisi `208–215`, Unit `216–224` [+Atur Virtual ID], Unit Setting `225–229`, Posisi `230–237`, Client Upliner `238–246`, Absen Point `247–254`)<br>5. `Integrasi Lintas Modul (Hybrid API+UI)` — Bagian Deny (6 TCs: `311–316`) | **148 TCs**:<br>1. `Dashboard` (13 TCs: Dashboard `013–018` & Pending *[Hybrid]* `019–025`)<br>2. `Laporan Group B + Download` (74 TCs: Lembur *[Hybrid]* `080–088`, Validasi Lembur `089–093`, Shifting `094–100`, Meeting `101–115`, Perjalanan Dinas *[Hybrid]* `116–124`, Koreksi *[Hybrid]* `125–133`, Izin Off *[Hybrid]* `134–141`, Download Absen `142–143`, Download Absen V2 `144–146`, Sisa Cuti `147–148`, Daily Report `149–153`)<br>3. `Management Group B` (56 TCs: Jabatan `255–260`, Shifting `261–267`, Jadwal `268–274`, Kalender `275–280`, Aturan Cuti `281–286`, Day Off `287–288`, Monthly Schedule `289–296`, User Monitoring `297–302`, Overtime Reason `303–310`)<br>4. `Integrasi Lintas Modul (Hybrid API+UI)` — Bagian Aji (5 TCs: `317–321`) |
-| **Fitur API (REST Assured)** | **30 TCs** (`SIT_ADM_API_001–030`):<br>Auth & JWT Security (10), Users CRUD (12), Attendance/Activity/Corrections GET (8) | **30 TCs** (`SIT_ADM_API_031–060`):<br>Leaves/Overtimes GET & SLA (4), Approvals PATCH Workflow (10), Master Data CRUD (16) |
+| **Fitur Web UI (Selenium)** | **173 TCs**:<br>1. `Autentikasi-Login` (12 TCs: `001–012`, *merged*)<br>2. `Laporan Group A` (54 TCs: `026–079`, *merged*)<br>3. `Import` (16 TCs: `154–169`, *merged*)<br>4. `Management Group A` (85 TCs: `170–254`, *merged*)<br>5. `Integrasi Lintas Modul (Hybrid API+UI)` — Bagian Deny (6 TCs: `311–316`) | **148 TCs**:<br>1. `Dashboard` (13 TCs: `013–025`, *merged*)<br>2. `Laporan Group B + Download` (74 TCs: `080–153`)<br>3. `Management Group B` (56 TCs: `255–310`)<br>4. `Integrasi Lintas Modul (Hybrid API+UI)` — Bagian Aji (5 TCs: `317–321`) |
+| **Fitur API (REST Assured)** | **65 TCs** (`SIT_ADM_API_001–030` & `061–095`):<br>Auth & JWT Security (10), Users CRUD (12), Attendance/Corrections GET (8), Bulk Import Excel (11), Binary Export/Reports (10), Upload Security (5), Sync/Summary/Defect/RBAC (9) | **65 TCs** (`SIT_ADM_API_031–060` & `096–130`):<br>Reports GET & SLA (4), Approvals & State Workflow (22), Master Data CRUD 14 Resources + Calendar Unauth Security Defect (39) |
 | **Scope Package POM** | `com.juaracoding.magang.pages.admin.deny.*` | `com.juaracoding.magang.pages.admin.aji.*` |
 | **Scope Package Test** | `tests.admin.deny.*` & `AdminGroupAApiTest` | `tests.admin.aji.*` & `AdminGroupBApiTest` |
 | **Git Branch (Opsi B)** | `feature/deny-admin-login`, `feature/deny-admin-reports-a`, `feature/deny-admin-import`, `feature/deny-admin-mgmt-a`, `feature/deny-admin-e2e`, `feature/deny-admin-api` | `feature/aji-admin-dashboard`, `feature/aji-admin-reports-b`, `feature/aji-admin-mgmt-b`, `feature/aji-admin-e2e`, `feature/aji-admin-api` |
@@ -94,26 +94,26 @@ Khusus repositori ini difokuskan pada **Portal Admin HRD** (**381 Test Cases**: 
 ---
 
 ### 🔹 Fase 5: Implementasi Automated Test Suites (UI, API, Hybrid & E2E)
-#### 👤 Bagian Tester Deny (203 TCs = 173 UI + 30 API):
+#### 👤 Bagian Tester Deny (238 TCs = 173 UI + 65 API):
 - [x] **5.1.** `AdminLoginTest.java` (`SIT_ADM_UI_001–012`: 12 TCs — *✅ Selesai & merged ke `main`*)
 - [x] **5.2.** `AdminReportsGroupATest.java` (`SIT_ADM_UI_026–079`: 54 TCs, termasuk Hybrid `Laporan-Cuti` & Pagination 7 menu — *✅ Selesai & merged ke `main` [49 PASS + 5 Strict QA Known Defects]*)
 - [x] **5.3.** `AdminImportTest.java` (`SIT_ADM_UI_154–169`: 16 TCs — *✅ Selesai & merged ke `main` [15 PASS + 1 New Defect on SIT_ADM_UI_167]*)
 - [x] **5.4.** `AdminManagementGroupATest.java` (`SIT_ADM_UI_170–254`: 85 TCs, termasuk filter & pagination User, Preview Foto/Jumlah Cuti Register, pagination Sendiri, `Atur Virtual ID` Unit — *✅ Selesai & merged ke `main` [82 PASS + 2 Known Defects (202, 241) + 1 New Defect on SIT_ADM_UI_197]*)
 - [ ] **5.5.** `AdminCrossModuleDenyE2ETest.java` (`SIT_ADM_UI_311–316`: 6 TCs Integrasi Lintas Modul Deny, termasuk E2E Jumlah Cuti)
-- [ ] **5.6.** `AdminGroupAApiTest.java` (`SIT_ADM_API_001–030`: 30 TCs)
+- [ ] **5.6.** `AdminGroupAApiTest.java` (`SIT_ADM_API_001–030` & `061–095`: 65 TCs)
 
-#### 👤 Bagian Tester Aji (178 TCs = 148 UI + 30 API):
+#### 👤 Bagian Tester Aji (213 TCs = 148 UI + 65 API):
 - [x] **5.7.** `AdminDashboardTest.java` (`SIT_ADM_UI_013–025`: 13 TCs, termasuk Hybrid `Dashboard-Pending`) — *✅ Selesai & merged ke `main`*
 - [ ] **5.8.** `AdminReportsGroupBTest.java` (`SIT_ADM_UI_080–153`: 74 TCs, termasuk Hybrid Approve/Reject & Pagination 7 tabel + `InfiniteScroll` Daily Report)
 - [ ] **5.9.** `AdminManagementGroupBTest.java` (`SIT_ADM_UI_255–310`: 56 TCs, termasuk Pagination 8 menu)
 - [ ] **5.10.** `AdminCrossModuleAjiE2ETest.java` (`SIT_ADM_UI_317–321`: 5 TCs Integrasi Lintas Modul Aji)
-- [ ] **5.11.** `AdminGroupBApiTest.java` (`SIT_ADM_API_031–060`: 30 TCs)
+- [ ] **5.11.** `AdminGroupBApiTest.java` (`SIT_ADM_API_031–060` & `096–130`: 65 TCs)
 
 ---
 
 ### 🔹 Fase 6: Konfigurasi Suite Runner & Verifikasi Eksekusi
 - [x] **6.1.** Buat `src/test/resources/testng.xml` serta suite 4 kategori (`testng-smoke.xml`, `testng-regression.xml`, `testng-positive.xml`, `testng-negative.xml`)
-- [ ] **6.2.** Buat `src/test/resources/testng-deny.xml` (203 TCs) & `testng-aji.xml` (178 TCs) setelah seluruh modul selesai
+- [ ] **6.2.** Buat `src/test/resources/testng-deny.xml` (238 TCs) & `testng-aji.xml` (213 TCs) setelah seluruh modul selesai
 - [ ] **6.3.** Jalankan verifikasi `mvn test -DsuiteXmlFile=src/test/resources/testng-deny.xml`, `testng-aji.xml`, dan `mvn clean test`
 
 ---
