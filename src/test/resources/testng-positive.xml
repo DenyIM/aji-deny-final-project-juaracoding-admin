@@ -20,6 +20,7 @@
             <class name="com.juaracoding.magang.tests.admin.aji.AdminDashboardTest" />
             <class name="com.juaracoding.magang.tests.admin.deny.AdminReportsGroupATest" />
             <class name="com.juaracoding.magang.tests.admin.deny.AdminImportTest" />
+            <class name="com.juaracoding.magang.tests.admin.deny.AdminManagementGroupATest" />
         </classes>
     </test>
 

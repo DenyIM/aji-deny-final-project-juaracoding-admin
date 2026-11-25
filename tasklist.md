@@ -82,7 +82,7 @@ Khusus repositori ini difokuskan pada **Portal Admin HRD** (**381 Test Cases**: 
 - [x] **4.2.** `AdminReportsGroupAPage.java` (`Semua`, `Kehadiran`, `Izin`, `Izin Terlambat`, `Izin Pulang Cepat`, `Sakit`) — *✅ Selesai & merged ke `main`*
 - [x] **4.3.** `AdminLeavePage.java` (`Laporan-Cuti`: Cancel Cuti & verifikasi Defect Edit) — *✅ Selesai & merged ke `main`*
 - [x] **4.4.** `AdminImportPage.java` (4 sub-menu `Import-*`) — *✅ Selesai & merged ke `main`*
-- [ ] **4.5.** `AdminManagementGroupAPage.java` (9 sub-menu: User [+filter lengkap & pagination], Pendaftaran User [+foto preview & Jumlah Cuti], Pendaftaran Sendiri [+pagination], Divisi, Unit + Type-Shift + `Atur Virtual ID`, Unit Setting, Posisi, Client Upliner + BCA, Absen Point)
+- [x] **4.5.** `AdminManagementGroupAPage.java` (9 sub-menu: User [+filter lengkap & pagination], Pendaftaran User [+foto preview & Jumlah Cuti], Pendaftaran Sendiri [+pagination], Divisi, Unit + Type-Shift + `Atur Virtual ID`, Unit Setting, Posisi, Client Upliner + BCA, Absen Point) — *✅ Selesai & merged ke `main`*
 
 #### 👤 Bagian Tester Aji (`pages/admin/aji/`):
 - [x] **4.6.** `AdminDashboardPage.java` (`Dashboard-Dashboard` & `Dashboard-Pending`) — *✅ Selesai & merged ke `main`*
@@ -98,7 +98,7 @@ Khusus repositori ini difokuskan pada **Portal Admin HRD** (**381 Test Cases**: 
 - [x] **5.1.** `AdminLoginTest.java` (`SIT_ADM_UI_001–012`: 12 TCs — *✅ Selesai & merged ke `main`*)
 - [x] **5.2.** `AdminReportsGroupATest.java` (`SIT_ADM_UI_026–079`: 54 TCs, termasuk Hybrid `Laporan-Cuti` & Pagination 7 menu — *✅ Selesai & merged ke `main` [49 PASS + 5 Strict QA Known Defects]*)
 - [x] **5.3.** `AdminImportTest.java` (`SIT_ADM_UI_154–169`: 16 TCs — *✅ Selesai & merged ke `main` [15 PASS + 1 New Defect on SIT_ADM_UI_167]*)
-- [ ] **5.4.** `AdminManagementGroupATest.java` (`SIT_ADM_UI_170–254`: 85 TCs, termasuk filter & pagination User, Preview Foto/Jumlah Cuti Register, pagination Sendiri, `Atur Virtual ID` Unit)
+- [x] **5.4.** `AdminManagementGroupATest.java` (`SIT_ADM_UI_170–254`: 85 TCs, termasuk filter & pagination User, Preview Foto/Jumlah Cuti Register, pagination Sendiri, `Atur Virtual ID` Unit — *✅ Selesai & merged ke `main` [82 PASS + 2 Known Defects (202, 241) + 1 New Defect on SIT_ADM_UI_197]*)
 - [ ] **5.5.** `AdminCrossModuleDenyE2ETest.java` (`SIT_ADM_UI_311–316`: 6 TCs Integrasi Lintas Modul Deny, termasuk E2E Jumlah Cuti)
 - [ ] **5.6.** `AdminGroupAApiTest.java` (`SIT_ADM_API_001–030`: 30 TCs)
 
