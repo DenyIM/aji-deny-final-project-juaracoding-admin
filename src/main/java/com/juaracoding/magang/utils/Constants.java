@@ -17,12 +17,18 @@ public final class Constants {
     public static final String ADMIN_LOGIN_URL = BASE_URL + "/authentication/login";
     public static final String ADMIN_DASHBOARD_URL = BASE_URL + "/dashboards/dashboard";
     public static final String ADMIN_PENDING_URL = BASE_URL + "/dashboards/pending";
+    public static final String ADMIN_SISA_CUTI_URL = BASE_URL + "/laporan/sisa-cuti";
+    public static final String USER_LOGIN_URL = BASE_URL + "/absen/login";
+    public static final String USER_LEAVE_URL = BASE_URL + "/apps/absent/leave";
+    public static final String USER_LEAVE_CLIENT_URL = BASE_URL + "/apps/absent/leave-client";
+    public static final String USER_SICK_URL = BASE_URL + "/apps/absent/sick";
 
     // ==========================================
     // REAL BACKEND API URI & ENDPOINTS
     // ==========================================
     public static final String API_BASE_URI = "https://api-dev.dikahadir.com/hadir-api-magang";
     public static final String API_AUTH_ENDPOINT = "/authentication";
+    public static final String API_UPLOAD_ENDPOINT = "/upload";
     public static final String API_USERS_ENDPOINT = "/users";
     public static final String API_ACTIVITY_ENDPOINT = "/activity";
     public static final String API_CORRECTIONS_ENDPOINT = "/activity-correction";
