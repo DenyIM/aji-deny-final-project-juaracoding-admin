@@ -93,8 +93,8 @@ flowchart TD
 
 | Tester | Modul / Fitur yang Ditangani | Web UI (Selenium) | REST Assured API | Total |
 | :--- | :--- | :---: | :---: | :---: |
-| **👤 Tester Deny** | 1. **Autentikasi-Login** (`001–012`: 12 TCs, *preserved*)<br>2. **Laporan Group A** (`026–079` — 54 TCs)<br>3. **Import** (`154–169` — 16 TCs)<br>4. **Management Group A** (`170–254` — 85 TCs)<br>5. **Integrasi Lintas Modul E2E — Bagian Deny** (`311–316`: 6 TCs)<br>6. **API Group A** (`SIT_ADM_API_001–030, 061–095`: Auth Security, Users CRUD, Activity/Corrections GET, Bulk Import Excel [11], Binary Export/Reports [10], Upload Security [5], Sync/Summary/Defect Contract/RBAC [9]) | **173 TCs** | **65 TCs** | **238 TCs** (52.8%) |
-| **👤 Tester Aji** | 1. **Dashboard** (`013–025`: 13 TCs)<br>2. **Laporan Group B + Download** (`080–153` — 74 TCs)<br>3. **Management Group B** (`255–310` — 56 TCs)<br>4. **Integrasi Lintas Modul E2E — Bagian Aji** (`317–321`: 5 TCs)<br>5. **API Group B** (`SIT_ADM_API_031–060, 096–130`: Reports/SLA, Approvals Workflow & State Transitions, Master Data CRUD [14 resources] & Calendar Auth Security) | **148 TCs** | **65 TCs** | **213 TCs** (47.2%) |
+| **👤 Tester Deny** | 1. **Autentikasi-Login** (`001–012`: 12 TCs, *preserved*)<br>2. **Laporan Group A** (`026–079` — 54 TCs)<br>3. **Import** (`154–169` — 16 TCs)<br>4. **Management Group A** (`170–254` — 85 TCs)<br>5. **Integrasi Lintas Modul E2E — Bagian Deny** (`311–315, 321`: 6 TCs)<br>6. **API Group A** (`SIT_ADM_API_001–030, 061–095`: Auth Security, Users CRUD, Activity/Corrections GET, Bulk Import Excel [11], Binary Export/Reports [10], Upload Security [5], Sync/Summary/Defect Contract/RBAC [9]) | **173 TCs** | **65 TCs** | **238 TCs** (52.8%) |
+| **👤 Tester Aji** | 1. **Dashboard** (`013–025`: 13 TCs)<br>2. **Laporan Group B + Download** (`080–153` — 74 TCs)<br>3. **Management Group B** (`255–310` — 56 TCs)<br>4. **Integrasi Lintas Modul E2E — Bagian Aji** (`316–320`: 5 TCs)<br>5. **API Group B** (`SIT_ADM_API_031–060, 096–130`: Reports/SLA, Approvals Workflow & State Transitions, Master Data CRUD [14 resources] & Calendar Auth Security) | **148 TCs** | **65 TCs** | **213 TCs** (47.2%) |
 | **TOTAL ADMIN** | **Seluruh Modul Kontigu Admin + Pagination 30 Menu Tabel + 11 E2E Lintas Modul + Security & File APIs** | **321 TCs** | **130 TCs** | **451 TCs** |
 
 ---
@@ -124,7 +124,7 @@ final-project-admin/
     │   ├── pages/
     │   │   ├── BasePage.java
     │   │   └── admin/
-    │   │       ├── deny/                    # AdminLoginPage, AdminReportsGroupAPage, AdminLeavePage, AdminImportPage, AdminManagementGroupAPage
+    │   │       ├── deny/                    # AdminLoginPage, AdminReportsGroupAPage, AdminLeavePage, AdminImportPage, AdminManagementGroupAPage, AdminCrossModuleE2EPage
     │   │       └── aji/                     # AdminDashboardPage, AdminReportsGroupBPage, AdminApprovalPage, AdminDownloadPage, AdminManagementGroupBPage
     │   ├── reports/{ExtentManager,ExtentTestManager}.java
     │   └── utils/{Constants,SecurityUtil,ScreenshotUtil}.java
@@ -137,7 +137,7 @@ final-project-admin/
         │   │   ├── helper/EmployeeApiHelper.java
         │   │   └── admin/{AdminGroupAApiTest,AdminGroupBApiTest}.java
         │   └── tests/admin/
-        │       ├── deny/{AdminLoginTest,AdminReportsGroupATest,AdminImportTest,AdminManagementGroupATest}.java
+        │       ├── deny/{AdminLoginTest,AdminReportsGroupATest,AdminImportTest,AdminManagementGroupATest,AdminCrossModuleDenyE2ETest}.java
         │       └── aji/{AdminDashboardTest,AdminReportsGroupBTest,AdminManagementGroupBTest}.java
         └── resources/
             ├── testng.xml
