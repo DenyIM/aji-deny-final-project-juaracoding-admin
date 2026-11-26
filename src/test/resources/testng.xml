@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="HADIR Admin Master Automation Suite (SIT v4 - 186 Active UI Tests)" verbose="1">
+<suite name="HADIR Admin Master Automation Suite (SIT v4 - 251 Active Tests: 186 UI + 65 API)" verbose="1">
 
     <listeners>
         <listener class-name="com.juaracoding.magang.listeners.TestListener" />
@@ -17,6 +17,12 @@
             <class name="com.juaracoding.magang.tests.admin.deny.AdminImportTest" />
             <class name="com.juaracoding.magang.tests.admin.deny.AdminManagementGroupATest" />
             <class name="com.juaracoding.magang.tests.admin.deny.AdminCrossModuleDenyE2ETest" />
+        </classes>
+    </test>
+
+    <test name="Admin REST API - Group A (Tester Deny)">
+        <classes>
+            <class name="com.juaracoding.magang.api.admin.AdminGroupAApiTest" />
         </classes>
     </test>
 
