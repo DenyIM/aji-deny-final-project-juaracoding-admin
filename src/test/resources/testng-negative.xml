@@ -22,6 +22,7 @@
             <class name="com.juaracoding.magang.tests.admin.deny.AdminImportTest" />
             <class name="com.juaracoding.magang.tests.admin.deny.AdminManagementGroupATest" />
             <class name="com.juaracoding.magang.tests.admin.deny.AdminCrossModuleDenyE2ETest" />
+            <class name="com.juaracoding.magang.api.admin.AdminGroupAApiTest" />
         </classes>
     </test>
 

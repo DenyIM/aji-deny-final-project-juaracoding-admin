@@ -27,8 +27,21 @@ public final class Constants {
     // REAL BACKEND API URI & ENDPOINTS
     // ==========================================
     public static final String API_BASE_URI = "https://api-dev.dikahadir.com/hadir-api-magang";
+    public static final String API_STATIC_UPLOADS_BASE_URI = "https://api-dev.dikahadir.com/uploads";
     public static final String API_AUTH_ENDPOINT = "/authentication";
     public static final String API_UPLOAD_ENDPOINT = "/upload";
+    public static final String API_DASHBOARD_ENDPOINT = "/dashboard";
+    public static final String API_SYNC_APPROVAL_ENDPOINT = "/sync-approval";
+    public static final String API_EXPORT_USER_ENDPOINT = "/export-user";
+    public static final String API_EXPORT_LEAVE_ENDPOINT = "/export-leave";
+    public static final String API_EXPORT_ATTENDANCE_SUMMARY_ENDPOINT = "/export-attendance-summary";
+    public static final String API_GENERATE_REPORT_ENDPOINT = "/generate-report";
+    public static final String API_GENERATE_REPORT_TYPE_ENDPOINT = "/generate-report-type";
+    public static final String API_DAILY_REPORT_ENDPOINT = "/daily-report";
+    public static final String API_IMPORT_ABSEN_ENDPOINT = "/import-absen-users";
+    public static final String API_IMPORT_STATUS_AKTIF_ENDPOINT = "/upload-excel-status-users";
+    public static final String API_IMPORT_STRUKTUR_USER_ENDPOINT = "/import-update-users";
+    public static final String API_IMPORT_LEAVE_ENDPOINT = "/import-leave";
     public static final String API_USERS_ENDPOINT = "/users";
     public static final String API_ACTIVITY_ENDPOINT = "/activity";
     public static final String API_CORRECTIONS_ENDPOINT = "/activity-correction";

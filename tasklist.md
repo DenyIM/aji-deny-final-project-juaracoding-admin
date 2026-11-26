@@ -14,17 +14,17 @@ Khusus repositori ini difokuskan pada **Portal Admin HRD** (**451 Test Cases**: 
 | **Fase 2** | Maven Setup (`pom.xml` Selenium `4.52.0`) & Struktur Package Terisolasi (`deny` & `aji`) | `pom.xml`, `.gitignore`, `.editorconfig`, `src/main/...`, `src/test/...`, `testdata/` | Shared Foundation | ✅ Selesai (Completed) |
 | **Fase 3** | Core Thread-Safe Engine, Keamanan Base64, & Hybrid API Seeding Helper | `SecurityUtil`, `Constants`, `DriverFactory` (`headless=true`), `BasePage`, `BaseTest`, `BaseApiTest`, `EmployeeApiHelper`, `ExtentManager`, `TestListener` | Shared Foundation | ✅ Selesai (Completed) |
 | **Fase 4** | Page Object Model (POM) Admin Implementation | POM Deny (6/6 Classes selesai) & POM Aji (1/5 Classes selesai; sisa 4 Classes) | Deny & Aji | 🔄 In Progress (POM Deny 100% selesai; Aji 4.6 Dashboard merged, sisa `4.7–4.10`) |
-| **Fase 5** | Automated Tests Implementation (Web UI + REST Assured API + Hybrid API+UI + E2E Lintas Modul) | `tests/admin/deny/*` (173/173 UI selesai), `tests/admin/aji/*` (13/148 UI merged), `AdminGroupAApiTest` (0/65 API), `AdminGroupBApiTest` (0/65 API) | Deny (238 TCs) & Aji (213 TCs) | 🔄 In Progress (`186/451` TCs selesai — Deny sisa `65 API`; Aji sisa `135 UI + 65 API`) |
-| **Fase 6** | TestNG Multi-Suite Runner (`testng`, `testng-smoke`, `testng-regression`, `testng-positive`, `testng-negative`, `testng-deny`, `testng-aji`) & Verifikasi Headless | `testng.xml`, `testng-smoke.xml`, `testng-regression.xml`, `testng-positive.xml`, `testng-negative.xml` | Deny & Aji | 🔄 In Progress (5 XML Suites Active for 186 TCs; sisa `testng-deny.xml` & `testng-aji.xml`) |
+| **Fase 5** | Automated Tests Implementation (Web UI + REST Assured API + Hybrid API+UI + E2E Lintas Modul) | `tests/admin/deny/*` (173/173 UI selesai), `tests/admin/aji/*` (13/148 UI merged), `AdminGroupAApiTest` (65/65 API merged), `AdminGroupBApiTest` (0/65 API) | Deny (238 TCs) & Aji (213 TCs) | 🔄 In Progress (`251/451` TCs selesai — **Deny 238/238 [100% merged]**; Aji sisa `135 UI + 65 API`) |
+| **Fase 6** | TestNG Multi-Suite Runner (`testng`, `testng-smoke`, `testng-regression`, `testng-positive`, `testng-negative`, `testng-deny`, `testng-aji`) & Verifikasi Headless | `testng.xml`, `testng-smoke.xml`, `testng-regression.xml`, `testng-positive.xml`, `testng-negative.xml`, `testng-deny.xml` | Deny & Aji | 🔄 In Progress (6 XML Suites Active termasuk `testng-deny.xml` 238 TCs; sisa `testng-aji.xml`) |
 | **Fase 7** | Validasi ExtentReports Dashboard, Sinkronisasi Status SIT v4, README & Walkthrough | `reports/ExtentReport.html`, `README.md`, `walkthrough.md` | Shared Deliverable | ⏳ Pending |
 
 ---
 
-## 📌 Ringkasan Sisa Pekerjaan (Per 26 Nov 2026 — `186 / 451` Admin TCs Selesai)
+## 📌 Ringkasan Sisa Pekerjaan (Per 26 Nov 2026 — `251 / 451` Admin TCs Selesai)
 
-- **👤 Sisa Tester Deny (`65 / 238 TCs` tersisa — seluruh 173 UI TCs sudah selesai)**:
-  1. **REST Assured API (`5.6`)**: `AdminGroupAApiTest.java` (`SIT_ADM_API_001–030` & `061–095`: **65 TCs** — Auth & JWT Security, Users CRUD, Attendance/Corrections GET, Bulk Import Excel, Binary Export/Reports, Upload Security, Sync/Summary/Defect/RBAC).
-  2. **Runner**: Buat `src/test/resources/testng-deny.xml` (**238 TCs**).
+- **👤 Status Tester Deny (`238 / 238 TCs` [100% selesai, teruji, & *merged*] — 173 Web UI + 65 REST API)**:
+  1. **REST Assured API (`5.6`)**: ✅ `AdminGroupAApiTest.java` (`SIT_ADM_API_001–030` & `061–095`: **65 TCs**) selesai, teruji penuh, & *merged* ke `main` (`Tests run: 65, Failures: 18 [4 Known Defects + 14 Strict QA Validasi/RBAC/IDOR], Errors: 0, Skipped: 0` → **47 PASS + 18 Strict QA Findings**).
+  2. **Runner (`6.2`)**: ✅ `src/test/resources/testng-deny.xml` (**238 TCs**: 173 Web UI + 65 REST API) selesai dibuat, divalidasi, & *merged* ke `main`.
 - **👤 Sisa Tester Aji (`200 / 213 TCs` tersisa — baru `AdminDashboardPage/Test` 13 TCs yang merged)**:
   1. **POM (`4.7–4.10`)**: `AdminReportsGroupBPage.java`, `AdminApprovalPage.java`, `AdminDownloadPage.java`, `AdminManagementGroupBPage.java` (+ helper E2E Aji bila diperlukan).
   2. **Web UI & E2E Tests (`5.8–5.10`, 135 UI TCs)**: `AdminReportsGroupBTest.java` (`080–153`: **74 TCs**), `AdminManagementGroupBTest.java` (`255–310`: **56 TCs**), dan `AdminCrossModuleAjiE2ETest.java` (`316–320`: **5 TCs**).
@@ -42,10 +42,10 @@ Khusus repositori ini difokuskan pada **Portal Admin HRD** (**451 Test Cases**: 
 | Aspek Kolaborasi | 👤 Tester Deny (238 TCs — 52.8%) | 👤 Tester Aji (213 TCs — 47.2%) |
 | :--- | :--- | :--- |
 | **Fitur Web UI (Selenium)** | **173 TCs**:<br>1. `Autentikasi-Login` (12 TCs: `001–012`, *merged*)<br>2. `Laporan Group A` (54 TCs: `026–079`, *merged*)<br>3. `Import` (16 TCs: `154–169`, *merged*)<br>4. `Management Group A` (85 TCs: `170–254`, *merged*)<br>5. `Integrasi Lintas Modul (Hybrid API+UI)` — Bagian Deny (6 TCs: `311–315, 321`, *merged*) | **148 TCs**:<br>1. `Dashboard` (13 TCs: `013–025`, *merged*)<br>2. `Laporan Group B + Download` (74 TCs: `080–153`)<br>3. `Management Group B` (56 TCs: `255–310`)<br>4. `Integrasi Lintas Modul (Hybrid API+UI)` — Bagian Aji (5 TCs: `316–320`) |
-| **Fitur API (REST Assured)** | **65 TCs** (`SIT_ADM_API_001–030` & `061–095`):<br>Auth & JWT Security (10), Users CRUD (12), Attendance/Corrections GET (8), Bulk Import Excel (11), Binary Export/Reports (10), Upload Security (5), Sync/Summary/Defect/RBAC (9) | **65 TCs** (`SIT_ADM_API_031–060` & `096–130`):<br>Reports GET & SLA (4), Approvals & State Workflow (22), Master Data CRUD 14 Resources + Calendar Unauth Security Defect (39) |
+| **Fitur API (REST Assured)** | **65 TCs** (`SIT_ADM_API_001–030` & `061–095`, *merged*):<br>Auth & JWT Security (10), Users CRUD (12), Attendance/Corrections GET (8), Bulk Import Excel (11), Binary Export/Reports (10), Upload Security (5), Sync/Summary/Defect/RBAC (9) | **65 TCs** (`SIT_ADM_API_031–060` & `096–130`):<br>Reports GET & SLA (4), Approvals & State Workflow (22), Master Data CRUD 14 Resources + Calendar Unauth Security Defect (39) |
 | **Scope Package POM** | `com.juaracoding.magang.pages.admin.deny.*` | `com.juaracoding.magang.pages.admin.aji.*` |
 | **Scope Package Test** | `tests.admin.deny.*` & `AdminGroupAApiTest` | `tests.admin.aji.*` & `AdminGroupBApiTest` |
-| **Git Branch (Opsi B)** | `feature/deny-admin-login`, `feature/deny-admin-reports-a`, `feature/deny-admin-import`, `feature/deny-admin-mgmt-a`, `feature/deny-admin-e2e`, `feature/deny-admin-api` | `feature/aji-admin-dashboard`, `feature/aji-admin-reports-b`, `feature/aji-admin-mgmt-b`, `feature/aji-admin-e2e`, `feature/aji-admin-api` |
+| **Git Branch (Opsi B)** | `feature/deny-admin-login`, `feature/deny-admin-reports-a`, `feature/deny-admin-import`, `feature/deny-admin-mgmt-a`, `feature/deny-admin-e2e`, `feature/deny-admin-api-a` | `feature/aji-admin-dashboard`, `feature/aji-admin-reports-b`, `feature/aji-admin-mgmt-b`, `feature/aji-admin-e2e`, `feature/aji-admin-api-b` |
 | **Suite Runner XML** | `mvn test -DsuiteXmlFile=src/test/resources/testng-deny.xml` | `mvn test -DsuiteXmlFile=src/test/resources/testng-aji.xml` |
 
 ---
@@ -118,7 +118,7 @@ Khusus repositori ini difokuskan pada **Portal Admin HRD** (**451 Test Cases**: 
 - [x] **5.3.** `AdminImportTest.java` (`SIT_ADM_UI_154–169`: 16 TCs — *✅ Selesai & merged ke `main` [15 PASS + 1 New Defect on SIT_ADM_UI_167]*)
 - [x] **5.4.** `AdminManagementGroupATest.java` (`SIT_ADM_UI_170–254`: 85 TCs, termasuk filter & pagination User, Preview Foto/Jumlah Cuti Register, pagination Sendiri, `Atur Virtual ID` Unit — *✅ Selesai & merged ke `main` [82 PASS + 2 Known Defects (202, 241) + 1 New Defect on SIT_ADM_UI_197]*)
 - [x] **5.5.** `AdminCrossModuleDenyE2ETest.java` (`SIT_ADM_UI_311–315, 321`: 6 TCs Integrasi Lintas Modul Deny, termasuk E2E Jumlah Cuti — *✅ Selesai & merged ke `main` [5 PASS + 1 Strict QA Known Defect (321)]*)
-- [ ] **5.6.** `AdminGroupAApiTest.java` (`SIT_ADM_API_001–030` & `061–095`: 65 TCs)
+- [x] **5.6.** `AdminGroupAApiTest.java` (`SIT_ADM_API_001–030` & `061–095`: 65 TCs — *✅ Selesai & merged ke `main` [47 PASS + 4 Known Defects (069, 076, 083, 092) + 14 Strict QA Validasi/RBAC/IDOR Findings]*)
 
 #### 👤 Bagian Tester Aji (213 TCs = 148 UI + 65 API):
 - [x] **5.7.** `AdminDashboardTest.java` (`SIT_ADM_UI_013–025`: 13 TCs, termasuk Hybrid `Dashboard-Pending`) — *✅ Selesai & merged ke `main`*
@@ -131,7 +131,7 @@ Khusus repositori ini difokuskan pada **Portal Admin HRD** (**451 Test Cases**: 
 
 ### 🔹 Fase 6: Konfigurasi Suite Runner & Verifikasi Eksekusi
 - [x] **6.1.** Buat `src/test/resources/testng.xml` serta suite 4 kategori (`testng-smoke.xml`, `testng-regression.xml`, `testng-positive.xml`, `testng-negative.xml`)
-- [ ] **6.2.** Buat `src/test/resources/testng-deny.xml` (238 TCs) & `testng-aji.xml` (213 TCs) setelah seluruh modul selesai
+- [ ] **6.2.** Buat `src/test/resources/testng-deny.xml` (238 TCs — *✅ Selesai & merged ke `main`*) & `testng-aji.xml` (213 TCs — *⏳ Menunggu modul Aji selesai*)
 - [ ] **6.3.** Jalankan verifikasi `mvn test -DsuiteXmlFile=src/test/resources/testng-deny.xml`, `testng-aji.xml`, dan `mvn clean test`
 
 ---
