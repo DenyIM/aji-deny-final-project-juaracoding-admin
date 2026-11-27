@@ -23,25 +23,7 @@ import java.util.List;
 public class AdminManagementGroupATest extends BaseTest {
 
     private String findAvailableValidNikFromPool() {
-        try {
-            String adminToken = EmployeeApiHelper.loginAsDefaultAdmin();
-            for (String candidate : Constants.VALID_NIK_POOL) {
-                Response res = RestAssured.given()
-                        .spec(BaseApiTest.buildDefaultRequestSpec())
-                        .header("Authorization", "Bearer " + adminToken)
-                        .queryParam("nik", candidate)
-                .when()
-                        .get(Constants.API_USERS_ENDPOINT)
-                .then().extract().response();
-                List<String> ids = res.jsonPath().getList("data.id");
-                if (ids == null || ids.isEmpty()) {
-                    return candidate;
-                }
-            }
-        } catch (Exception e) {
-            logger.warn("Could not query VALID_NIK_POOL availability: {}", e.getMessage());
-        }
-        return Constants.VALID_NIK_POOL[0];
+        return EmployeeApiHelper.findAvailableNikFromPool();
     }
 
     private void cleanupUserByEmailViaAdminApi(String email) {

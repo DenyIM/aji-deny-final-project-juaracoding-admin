@@ -263,7 +263,7 @@ public class AdminGroupAApiTest extends BaseApiTest {
     }
 
     private String createDisposableUserViaAdmin(String prefix) {
-        String masterNik = Constants.VALID_NIK_POOL[0];
+        String masterNik = EmployeeApiHelper.findAvailableNikFromPool();
         long ts = System.currentTimeMillis();
         String uniqueEmail = prefix + "." + ts + "@hadir.com";
         String tempPass = "QaApi#" + ts;
@@ -624,7 +624,7 @@ public class AdminGroupAApiTest extends BaseApiTest {
           description = "SIT_ADM_API_018 - Tambah user karyawan baru melalui endpoint POST /users",
           groups = {"smoke", "regression", "positive"})
     public void testSIT_ADM_API_018_CreateNewUserViaPostUsers() {
-        String masterNik = Constants.VALID_NIK_POOL[0];
+        String masterNik = EmployeeApiHelper.findAvailableNikFromPool();
         long ts = System.currentTimeMillis();
         String testEmail = "testapi.deny." + ts + "@hadir.com";
 
@@ -1527,7 +1527,7 @@ public class AdminGroupAApiTest extends BaseApiTest {
 
         try {
             Map<String, Object> body = new HashMap<>();
-            body.put("nik", Constants.VALID_NIK_POOL[0]);
+            body.put("nik", EmployeeApiHelper.findAvailableNikFromPool());
             body.put("fullname", "Escalation Test " + ts);
             body.put("email", fakeEmail);
             body.put("password", "FakePass#" + ts);

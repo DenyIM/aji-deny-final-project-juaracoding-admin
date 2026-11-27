@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="HADIR Admin Master Automation Suite (SIT v4 - 251 Active Tests: 186 UI + 65 API)" verbose="1">
+<suite name="HADIR Admin Master Automation Suite (SIT v5.1 - 251 Active Tests: 186 UI + 65 API)" verbose="1">
 
     <listeners>
         <listener class-name="com.juaracoding.magang.listeners.TestListener" />

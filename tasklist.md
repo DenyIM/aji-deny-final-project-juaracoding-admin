@@ -2,7 +2,7 @@
 
 Roadmap pengujian otomatisasi berbasis **Java 21**, **Selenium WebDriver `4.52.0`** (default `headless = true`), **REST Assured `6.3.0`**, **TestNG `7.12.0`**, dan **ExtentReports `5.1.2`** dengan struktur standar industri mengacu pada `reference.md`.
 
-Khusus repositori ini difokuskan pada **Portal Admin HRD** (**451 Test Cases**: **321 Web UI** + **130 REST Assured API**), sedangkan seluruh panduan, struktur, pembagian tester, endpoint API, dan *master prompt* untuk repositori **Web Karyawan** (`250 TCs`: `140 Web UI` + `110 REST Assured API`) telah disiapkan melalui dokumen [WebKaryawanPrompt.md](file:///c:/Users/Asus/Documents/JuaraCoding/Final/final-project-admin/WebKaryawanPrompt.md) dan matriks [docs/SIT_Scenario_Magang_Hadir.xlsx](file:///c:/Users/Asus/Documents/JuaraCoding/Final/final-project-admin/docs/SIT_Scenario_Magang_Hadir.xlsx) (**v4 — 701 TCs + kolom `Manual Check`**).
+Khusus repositori ini difokuskan pada **Portal Admin HRD** (**451 Test Cases**: **321 Web UI** + **130 REST Assured API**), sedangkan seluruh panduan, struktur, pembagian tester, endpoint API, dan *master prompt* untuk repositori **Web Karyawan** (**304 TCs**: **160 Web UI** + **144 REST Assured API**) telah disiapkan melalui dokumen [WebKaryawanPrompt.md](file:///c:/Users/Asus/Documents/JuaraCoding/Final/final-project-admin/WebKaryawanPrompt.md) dan matriks [docs/SIT_Scenario_Magang_Hadir.xlsx](file:///c:/Users/Asus/Documents/JuaraCoding/Final/final-project-admin/docs/SIT_Scenario_Magang_Hadir.xlsx) (**v5.1 — 755 TCs + kolom `Manual Check`**).
 
 ---
 
@@ -10,13 +10,13 @@ Khusus repositori ini difokuskan pada **Portal Admin HRD** (**451 Test Cases**: 
 
 | Fase | Deskripsi Fase | Output Deliverables | Penanggung Jawab | Status |
 | :---: | :--- | :--- | :---: | :---: |
-| **Fase 1** | Discovery Menu & API Riil, Audit & Ekspansi SIT v4 (+125 API TCs & Kolom `Manual Check`), & Update `WebKaryawanPrompt.md` | `plan.md`, `tasklist.md`, `docs/SIT_Scenario_Magang_Hadir.xlsx` (701 TCs total), `WebKaryawanPrompt.md` | Shared Foundation | ✅ Selesai (Completed) |
+| **Fase 1** | Discovery Menu & API Riil, Audit & Ekspansi SIT v5.1 (+kolom `Manual Check`), & Update `WebKaryawanPrompt.md` | `plan.md`, `tasklist.md`, `docs/SIT_Scenario_Magang_Hadir.xlsx` (755 TCs total), `WebKaryawanPrompt.md` | Shared Foundation | ✅ Selesai (Completed) |
 | **Fase 2** | Maven Setup (`pom.xml` Selenium `4.52.0`) & Struktur Package Terisolasi (`deny` & `aji`) | `pom.xml`, `.gitignore`, `.editorconfig`, `src/main/...`, `src/test/...`, `testdata/` | Shared Foundation | ✅ Selesai (Completed) |
 | **Fase 3** | Core Thread-Safe Engine, Keamanan Base64, & Hybrid API Seeding Helper | `SecurityUtil`, `Constants`, `DriverFactory` (`headless=true`), `BasePage`, `BaseTest`, `BaseApiTest`, `EmployeeApiHelper`, `ExtentManager`, `TestListener` | Shared Foundation | ✅ Selesai (Completed) |
 | **Fase 4** | Page Object Model (POM) Admin Implementation | POM Deny (6/6 Classes selesai) & POM Aji (1/5 Classes selesai; sisa 4 Classes) | Deny & Aji | 🔄 In Progress (POM Deny 100% selesai; Aji 4.6 Dashboard merged, sisa `4.7–4.10`) |
 | **Fase 5** | Automated Tests Implementation (Web UI + REST Assured API + Hybrid API+UI + E2E Lintas Modul) | `tests/admin/deny/*` (173/173 UI selesai), `tests/admin/aji/*` (13/148 UI merged), `AdminGroupAApiTest` (65/65 API merged), `AdminGroupBApiTest` (0/65 API) | Deny (238 TCs) & Aji (213 TCs) | 🔄 In Progress (`251/451` TCs selesai — **Deny 238/238 [100% merged]**; Aji sisa `135 UI + 65 API`) |
 | **Fase 6** | TestNG Multi-Suite Runner (`testng`, `testng-smoke`, `testng-regression`, `testng-positive`, `testng-negative`, `testng-deny`, `testng-aji`) & Verifikasi Headless | `testng.xml`, `testng-smoke.xml`, `testng-regression.xml`, `testng-positive.xml`, `testng-negative.xml`, `testng-deny.xml` | Deny & Aji | 🔄 In Progress (6 XML Suites Active termasuk `testng-deny.xml` 238 TCs; sisa `testng-aji.xml`) |
-| **Fase 7** | Validasi ExtentReports Dashboard, Sinkronisasi Status SIT v4, README & Walkthrough | `reports/ExtentReport.html`, `README.md`, `walkthrough.md` | Shared Deliverable | ⏳ Pending |
+| **Fase 7** | Validasi ExtentReports Dashboard, Sinkronisasi Status SIT v5.1, README & Walkthrough | `reports/ExtentReport.html`, `README.md`, `walkthrough.md` | Shared Deliverable | ⏳ Pending |
 
 ---
 
@@ -33,7 +33,7 @@ Khusus repositori ini difokuskan pada **Portal Admin HRD** (**451 Test Cases**: 
 - **🤝 Sisa Shared Finalization (`Fase 6.3 & Fase 7`)**:
   - Eksekusi penuh `testng-deny.xml`, `testng-aji.xml`, dan `mvn clean test` (headless).
   - Validasi akhir `reports/ExtentReport.html`, sinkronisasi status ke `docs/SIT_Scenario_Magang_Hadir.xlsx`, dan finalisasi `README.md` / `walkthrough.md`.
-  - *(Proyek terpisah)* Implementasi repositori **Web Karyawan** (`250 TCs`: `140 Web UI` + `110 API`) mengacu pada [WebKaryawanPrompt.md](file:///c:/Users/Asus/Documents/JuaraCoding/Final/final-project-admin/WebKaryawanPrompt.md).
+  - *(Proyek terpisah)* Implementasi repositori **Web Karyawan** (**304 TCs**: `160 Web UI` + `144 REST API` — Deny `155 TCs`, Aji `149 TCs`) mengacu pada [docs/SIT_Scenario_Magang_Hadir.xlsx](file:///c:/Users/Asus/Documents/JuaraCoding/Final/final-project-admin/docs/SIT_Scenario_Magang_Hadir.xlsx) dan [WebKaryawanPrompt.md](file:///c:/Users/Asus/Documents/JuaraCoding/Final/final-project-admin/WebKaryawanPrompt.md).
 
 ---
 
@@ -139,5 +139,5 @@ Khusus repositori ini difokuskan pada **Portal Admin HRD** (**451 Test Cases**: 
 ### 🔹 Fase 7: Validasi ExtentReports, Sinkronisasi Status SIT & Finalisasi
 - [ ] **7.1.** Validasi `reports/ExtentReport.html` (filter `Tester Deny`, `Tester Aji`, `Selenium Web UI`, `REST Assured API`, `Hybrid API + UI`, Base64 screenshots)
 - [ ] **7.2.** Sinkronisasi status hasil eksekusi aktual pada `docs/SIT_Scenario_Magang_Hadir.xlsx`
-- [ ] **7.3.** Lengkapi `README.md` dan `walkthrough.md`
+- [ ] **7.3.** Lengkapi `README.md` (wajib cantumkan aturan eksekusi sekuensial/bergantian — jangan jalankan suite **Admin** dan **Karyawan** bersamaan secara paralel karena berbagi server & akun staging `admin@hadir.com` / `hadirsqa1@gmail.com`) dan `walkthrough.md`
 

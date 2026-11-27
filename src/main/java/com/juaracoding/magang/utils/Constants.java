@@ -74,12 +74,12 @@ public final class Constants {
     // Kredensial Employee khusus untuk Hybrid @Before API Seeding
     public static final String HYBRID_EMPLOYEE_EMAIL = "hadirsqa1@gmail.com";
     public static final String HYBRID_EMPLOYEE_NAME = "Hadir SQA Testing 1";
-    public static final String HYBRID_EMPLOYEE_NIK = "D6201031";
+    public static final String HYBRID_EMPLOYEE_NIK = "D8240010";
     public static final String HYBRID_EMPLOYEE_PASSWORD_ENCODED = "U1FBQEhhZGlyMTIzNDU=";
 
-    // Pool NIK valid dari dokumen referensi untuk pengujian registrasi / pencarian user
+    // Pool NIK valid dari dokumen referensi untuk pengujian registrasi / pencarian user (mengecualikan D8240010 milik hadirsqa1@gmail.com)
     public static final String[] VALID_NIK_POOL = {
-        "F1240001", "D6240005", "D7240031", "D8240010", "D7240029"
+        "F1240001", "D6240005", "D7240031", "D7240029"
     };
 
     // ==========================================

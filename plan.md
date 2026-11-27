@@ -5,10 +5,10 @@ Membangun **Enterprise Web UI & API Test Automation Framework** khusus untuk **p
 
 Rencana ini mencakup:
 1. **Keamanan Kredensial Base64 (`SecurityUtil`)**: Menyimpan seluruh password ter-encode Base64 di `Constants.java` dan men-decode di memori runtime agar aman dipublikasikan ke GitHub.
-2. **Audit & Refactoring Matriks SIT v4 (`701 TCs` + Kolom `Manual Check`)**: Pengelompokan modul kontigu (`0` blok terpecah), pemisahan perilaku defect dari `Expected Result` ke kolom `Actual Result / Defect Notes` (`Ready (Known Defect)`), penambahan kolom `Severity`, `Priority`, **`Test Suite` (`Smoke`, `Regression`, `Positif`, `Negatif`)**, serta kolom **`Manual Check`** (`☐ Belum` / `☑ Sudah` dropdown + `COUNTIF` tracker), pemecahan skenario *compound* menjadi atomik (sambil mempertahankan `SIT_ADM_UI_001–012` utuh), filter lengkap `Management-User`, modal `Atur Virtual ID` di `Management-Unit`, upload foto *preview* & verifikasi `Jumlah Cuti` (`Known Defect`) di `Pendaftaran User`, **11 skenario Integrasi Lintas Modul Admin (`311–321`) + 11 User (`130–140`)**, **4 User `Download Report` (`126–129`)**, serta cakupan **Pagination `Rows per page` (`5/10/25`) + `Next/Prev/First/Last`** di seluruh 30 menu tabel Admin + `InfiniteScroll` di `Daily Report` & 6 list User.
-3. **Inspeksi & Ekspansi API Riil (REST Assured — `240 API TCs`)**: Menggunakan endpoint backend FeathersJS terverifikasi (`https://api-dev.dikahadir.com/hadir-api-magang`, `POST /authentication`) beserta ekspansi v4 menjadi **`240 API TCs`** (**130 Admin API** `001–130` + **110 User API** `001–110`), mencakup Bulk Import Excel, Binary Export/Reports, Multipart `/upload` security, 14 Master Data CRUD, Approval Workflows, serta audit keamanan RBAC/IDOR/Mass-Assignment/Missing-Auth (`/calendar` & `/export-leave`).
+2. **Audit & Refactoring Matriks SIT v5.1 (`755 TCs` + Kolom `Manual Check`)**: Pengelompokan modul kontigu (`0` blok terpecah), pemisahan perilaku defect dari `Expected Result` ke kolom `Actual Result / Defect Notes` (`Ready (Known Defect)`), penambahan kolom `Severity`, `Priority`, **`Test Suite` (`Smoke`, `Regression`, `Positif`, `Negatif`)**, serta kolom **`Manual Check`** (`☐ Belum` / `☑ Sudah` dropdown + `COUNTIF` tracker), pemecahan skenario *compound* menjadi atomik (sambil mempertahankan `SIT_ADM_UI_001–012` utuh), filter lengkap `Management-User`, modal `Atur Virtual ID` di `Management-Unit`, upload foto *preview* & verifikasi `Jumlah Cuti` (`Known Defect`) di `Pendaftaran User`, **11 skenario Integrasi Lintas Modul Admin (`311–321`) + 11 User (`150–160`)**, **6 User `Download Report` (`136–141`)**, serta cakupan **Pagination `Rows per page` (`5/10/25`) + `Next/Prev/First/Last`** di seluruh 30 menu tabel Admin + `InfiniteScroll` di `Daily Report` & 6 list User.
+3. **Inspeksi & Ekspansi API Riil (REST Assured — `274 API TCs`)**: Menggunakan endpoint backend FeathersJS terverifikasi (`https://api-dev.dikahadir.com/hadir-api-magang`, `POST /authentication`) beserta ekspansi menjadi **`274 API TCs`** (**130 Admin API** `001–130` + **144 User API** `001–144`), mencakup Bulk Import Excel, Binary Export/Reports, Multipart `/upload` security, 14 Master Data CRUD, Approval Workflows, serta audit keamanan RBAC/IDOR/Mass-Assignment/Missing-Auth (`/calendar` & `/export-leave`).
 4. **Arsitektur Hybrid API + UI (`EmployeeApiHelper`)**: Menggunakan REST Assured di tahap `@BeforeMethod` / `@BeforeClass` untuk membuat data pengajuan sebagai Karyawan (`hadirsqa1@gmail.com`), lalu Selenium menguji validasi **Approve / Reject / Cancel** dan **Integrasi Lintas Modul E2E** di UI Admin secara deterministik. (Untuk `Laporan-Cuti`, tahap `@Before` menggunakan strategi query data cuti aktif yang tersedia / fallback UI helper).
-5. **Re-alokasi Seimbang SIT v4 untuk 2 Tester (Deny & Aji)**: Membagi pengerjaan fitur secara seimbang antara **Tester Deny** dan **Tester Aji** pada SIT v4 di proyek Admin (**238 : 213**, atau **52.8% : 47.2%**) maupun proyek Karyawan (**127 : 123**, atau **50.8% : 49.2%**).
+5. **Re-alokasi Seimbang SIT v5.1 untuk 2 Tester (Deny & Aji)**: Membagi pengerjaan fitur secara seimbang antara **Tester Deny** dan **Tester Aji** pada SIT v5.1 di proyek Admin (**238 : 213**, atau **52.8% : 47.2%**) maupun proyek Karyawan (**155 : 149**, atau **51.0% : 49.0%**).
 6. **Tasklist Multi-Fase (`tasklist.md`) & Blueprint Proyek Karyawan (`WebKaryawanPrompt.md`)**: Kedua dokumen disiapkan di **Fase 1** agar selaras sejak awal antara repositori Admin dan repositori Karyawan.
 
 ---
@@ -23,14 +23,14 @@ Rencana ini mencakup:
 > - `BaseApiTest` wajib mengaktifkan **`RestAssured.useRelaxedHTTPSValidation()`** agar sertifikat TLS `api-dev.dikahadir.com` dapat diakses dengan lancar.
 
 > [!IMPORTANT]
-> **2. Pembagian Seimbang SIT v4 untuk 2 Tester (Total 701 TCs — 52.1% : 47.9%)**
+> **2. Pembagian Seimbang SIT v5.1 untuk 2 Tester (Total 755 TCs — 52.1% : 47.9%)**
 > - **Proyek Admin (Total 451 TCs = 321 Web UI + 130 API)**:
 >   - **Tester Deny**: **238 TCs** (**173 Web UI** + **65 API**)
 >   - **Tester Aji**: **213 TCs** (**148 Web UI** + **65 API**)
-> - **Proyek Karyawan (Total 250 TCs = 140 Web UI + 110 API — `WebKaryawanPrompt.md`)**:
->   - **Tester Deny**: **127 TCs** (**72 Web UI** + **55 API**)
->   - **Tester Aji**: **123 TCs** (**68 Web UI** + **55 API**)
-> - **Total Gabungan 2 Proyek (701 TCs)**: **Tester Deny 365 TCs (52.1%)** | **Tester Aji 336 TCs (47.9%)**.
+> - **Proyek Karyawan (Total 304 TCs = 160 Web UI + 144 API — `docs/SIT_Scenario_Magang_Hadir.xlsx` v5.1)**:
+>   - **Tester Deny**: **155 TCs** (**84 Web UI** + **71 API**)
+>   - **Tester Aji**: **149 TCs** (**76 Web UI** + **73 API**)
+> - **Total Gabungan 2 Proyek (755 TCs)**: **Tester Deny 393 TCs (52.1%)** | **Tester Aji 362 TCs (47.9%)**.
 
 ---
 
@@ -114,7 +114,7 @@ final-project-admin/
 ├── WebKaryawanPrompt.md                     # Deliverable Fase 1: Panduan & Prompt proyek Karyawan
 ├── Project SQA Batch 31.xlsx
 ├── docs/
-│   └── SIT_Scenario_Magang_Hadir.xlsx       # Single Source of Truth Matriks SIT v4 (701 TCs: 451 Admin + 250 Karyawan)
+│   └── SIT_Scenario_Magang_Hadir.xlsx       # Single Source of Truth Matriks SIT v5.1 (755 TCs: 451 Admin + 304 Karyawan)
 ├── reports/
 │   ├── ExtentReport.html
 │   └── screenshots/
@@ -149,6 +149,6 @@ final-project-admin/
 ---
 
 ## Verification Plan
-- **Fase 1**: Verifikasi jumlah baris dan pembagian tester pada `docs/SIT_Scenario_Magang_Hadir.xlsx` v4 (**701 TCs**: Deny Admin 238, Aji Admin 213, Deny User 127, Aji User 123 + kolom `Manual Check`) serta kelengkapan `plan.md`, `tasklist.md`, dan `WebKaryawanPrompt.md`.
+- **Fase 1**: Verifikasi jumlah baris dan pembagian tester pada `docs/SIT_Scenario_Magang_Hadir.xlsx` v5.1 (**755 TCs**: Deny Admin 238, Aji Admin 213, Deny User 155, Aji User 149 + kolom `Manual Check`) serta kelengkapan `plan.md`, `tasklist.md`, dan `WebKaryawanPrompt.md`.
 - **Fase 2–7**: `mvn clean test-compile`, `mvn test -Dtest=AdminGroupAApiTest,AdminGroupBApiTest`, `mvn test -DsuiteXmlFile=src/test/resources/testng-deny.xml`, `mvn test -DsuiteXmlFile=src/test/resources/testng-aji.xml`, dan `mvn clean test`.
 
